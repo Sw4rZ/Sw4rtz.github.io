@@ -1,34 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sw4rtz</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <img src="profile.jpg" alt="Profile Picture">
-        <h1>Sw4rtz</h1>
-        <div class="nav-container">
-            <a href="#">Home</a>
-            <a href="writeup.html">Writeups</a>
-        </div>
-    </header>
-    <main>
-        <section id="home">
-            <h2>Welcome!</h2>
-            <p>
-                Knowledge is limitless, and the journey to learn never ends. At Sw4rtz, we believe in the power of curiosity and the drive to grow every day. 
-                Whether you're honing your skills in hacking, diving into programming, or uncovering new pathways in tech, this is your space to explore and innovate.
-            </p>
-            <p>
-                Let's embark on this journey together and keep the fire of learning alive!
-            </p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; Sw4rtz. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+/* General Styling */
+body {
+    font-family: "Courier New", Courier, monospace;
+    background-color: #000;
+    color: #0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    max-width: 1200px;
+    padding: 15px 20px;
+    border-bottom: 2px solid #0f0;
+}
+header img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 2px solid #0f0;
+}
+header h1 {
+    font-size: 1.8em;
+    margin: 0;
+    color: #00ff00;
+    text-align: center;
+    flex-grow: 1;
+}
+.nav-container {
+    display: flex;
+    gap: 15px;
+}
+.nav-container a {
+    color: #00ff00;
+    text-decoration: none;
+    font-size: 1.1em;
+    border: 1px solid #0f0;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.nav-container a:hover {
+    background-color: #00ff00;
+    color: #000;
+}
+
+/* Main Content Styling */
+main {
+    width: 95%;
+    max-width: 1200px;
+    padding: 30px 20px;
+    text-align: left;
+    line-height: 1.6;
+    margin: 0 auto;
+}
+section {
+    margin-bottom: 25px;
+}
+
+/* Footer Styling */
+footer {
+    width: 95%;
+    max-width: 1200px;
+    border-top: 2px solid #0f0;
+    padding: 15px;
+    text-align: center;
+    margin-top: 30px;
+    background-color: #111;
+}
+h2 {
+    color: #00cc00;
+    margin-bottom: 15px;
+}
+p {
+    color: #66ff66;
+    margin-bottom: 15px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 15px;
+    }
+    header img {
+        margin-bottom: 10px;
+    }
+    .nav-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    main {
+        padding: 20px;
+    }
+    footer {
+        padding: 10px;
+    }
+    h2 {
+        font-size: 1.4em;
+    }
+    p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    header img {
+        width: 60px;
+        height: 60px;
+    }
+    header h1 {
+        font-size: 1.5em;
+    }
+    .nav-container a {
+        font-size: 1em;
+        padding: 6px 10px;
+    }
+    main {
+        padding: 15px;
+    }
+    footer {
+        font-size: 0.8em;
+        padding: 10px;
+    }
+}
