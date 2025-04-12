@@ -34,8 +34,30 @@
             margin: 0 auto;
             line-height: 1.6;
         }
-        section {
-            margin-bottom: 30px;
+        .writeups-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .writeup-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #00ff00;
+            border: 2px solid #0f0;
+            border-radius: 8px;
+            padding: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .writeup-item:hover {
+            background-color: #00ff00;
+            color: #000;
+        }
+        .writeup-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
         }
         footer {
             border-top: 2px solid #0f0;
@@ -44,14 +66,6 @@
             margin-top: 40px;
             background-color: #111;
         }
-        h2 {
-            color: #00cc00;
-            margin-bottom: 20px;
-        }
-        p {
-            color: #66ff66;
-            margin-bottom: 20px;
-        }
     </style>
 </head>
 <body>
@@ -59,11 +73,12 @@
         <h1>Writeups</h1>
     </header>
     <main>
-        <section id="writeup">
-            <h2>ExploitX CTF Write-up</h2>
-            <p>
-                Placeholder content for ExploitX CTF Write-up. Add your detailed explanations, challenges, and solutions here for readers to explore and learn!
-            </p>
+        <section class="writeups-grid">
+            <!-- First Writeup Icon -->
+            <a href="exploitx.html" class="writeup-item">
+                <span class="writeup-icon">🧩</span> <!-- Unique icon for ExploitX -->
+                <span>ExploitX CTF Write-up</span>
+            </a>
         </section>
     </main>
     <footer>
