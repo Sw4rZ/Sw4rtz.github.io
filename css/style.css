@@ -31,12 +31,13 @@ body {
 /* Header */
 .main-header {
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 4rem 1rem 2rem;
 }
 .logo {
-  width: 140px;
+  width: 180px;
   border-radius: 50%;
   margin-bottom: 1.5rem;
+  border: 2px solid #00ffcc;
 }
 .title {
   font-size: 3rem;
@@ -55,7 +56,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem 2rem;
 }
 .nav a {
   text-decoration: none;
@@ -101,6 +102,9 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .logo {
+    width: 140px;
+  }
   .title {
     font-size: 2rem;
   }
@@ -113,6 +117,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    padding-top: 2rem;
   }
   .ctf-list {
     flex-direction: column;
