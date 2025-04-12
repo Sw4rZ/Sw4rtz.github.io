@@ -5,22 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sw4rtz - Learn with Me</title>
     <style>
-        /* General Styling */
+        /* General Body Styling */
         body {
             font-family: "Courier New", Courier, monospace;
-            background-color: #000;
-            color: #0f0;
+            background-color: #000; /* Black background for terminal effect */
+            color: #0f0; /* Neon green text */
             margin: 0;
             padding: 0;
         }
+
+        /* Header Styling */
         header {
+            display: flex;
+            align-items: center;
             border-bottom: 2px solid #0f0;
-            padding: 1em 0;
-            text-align: center;
+            padding: 1em;
         }
+        header img {
+            width: 60px; /* Fixed size to avoid stretching */
+            height: 60px; /* Fixed size to avoid stretching */
+            border-radius: 50%; /* Makes it a circle */
+            border: 2px solid #0f0;
+            margin-right: 1em;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #00ff00;
+        }
+
+        /* Navigation Styling */
         nav {
-            margin: 1em 0;
-            text-align: center;
+            margin-left: auto; /* Push navigation to the right */
         }
         nav a {
             color: #00ff00;
@@ -31,42 +47,51 @@
         nav a:hover {
             color: #33ff33;
         }
+
+        /* Main Content Styling */
         main {
             padding: 2em;
             text-align: left;
             max-width: 800px;
             margin: 0 auto;
         }
-        article {
+        section {
             margin-bottom: 2em;
         }
-        article h3 a {
-            text-decoration: none;
-            color: #33ff33;
-            font-size: 1.5em;
+
+        /* Footer Styling */
+        footer {
+            border-top: 2px solid #0f0;
+            padding: 1em 0;
+            text-align: center;
         }
-        article h3 a:hover {
-            color: #66ff66;
-            text-decoration: underline;
+
+        h2 {
+            color: #00cc00; /* Slightly darker green for section headers */
+        }
+        p {
+            color: #66ff66; /* Lighter green for text */
         }
     </style>
 </head>
 <body>
     <header>
+        <img src="profile.jpg" alt="Profile Picture">
         <h1>Welcome to Sw4rtz - Learn with Me</h1>
         <nav>
             <a href="#">Home</a>
-            <a href="#writeups">Writeups</a>
+            <a href="writeup.html">Writeups</a>
         </nav>
     </header>
     <main>
-        <section id="writeups">
-            <h2>Writeups</h2>
-            <article>
-                <!-- Link redirects to writeup.html -->
-                <h3><a href="writeup.html">ExploitX CTF Write-up</a></h3>
-                <p>Click the title to view the detailed ExploitX CTF write-up!</p>
-            </article>
+        <section id="home">
+            <h2>Learn with Me</h2>
+            <p>
+                Welcome to Sw4rtz, a space to explore, learn, and grow together! Whether you're diving into hacking, programming, or simply looking to expand your skills, this is the place to start.
+            </p>
+            <p>
+                I’ll share resources, tips, and insights to help you unlock new knowledge. Ready to explore?
+            </p>
         </section>
     </main>
     <footer>
