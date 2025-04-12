@@ -5,30 +5,32 @@ body {
     color: #0f0;
     margin: 0;
     padding: 0;
+    padding-top: 100px; /* To avoid content being hidden under the fixed header */
 }
 
-/* Header Styling */
-header {
+/* Persistent Header */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #000;
+    border-bottom: 2px solid #0f0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 95%;
-    max-width: 1200px;
     padding: 15px 20px;
-    border-bottom: 2px solid #0f0;
+    z-index: 1000; /* Ensures the header stays above other elements */
 }
-header img {
-    width: 75px;
-    height: 75px;
+.fixed-header img {
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     border: 2px solid #0f0;
 }
-header h1 {
+.fixed-header h1 {
     font-size: 1.8em;
     margin: 0;
     color: #00ff00;
-    text-align: center;
-    flex-grow: 1;
 }
 .nav-container {
     display: flex;
@@ -52,13 +54,9 @@ header h1 {
 main {
     width: 95%;
     max-width: 1200px;
-    padding: 30px 20px;
-    text-align: left;
-    line-height: 1.6;
     margin: 0 auto;
-}
-section {
-    margin-bottom: 25px;
+    padding: 20px;
+    line-height: 1.6;
 }
 
 /* Footer Styling */
@@ -71,60 +69,15 @@ footer {
     margin-top: 30px;
     background-color: #111;
 }
-h2 {
-    color: #00cc00;
-    margin-bottom: 15px;
-}
-p {
-    color: #66ff66;
-    margin-bottom: 15px;
-}
 
-/* Media Queries for Responsive Design */
+/* Responsive Design */
 @media (max-width: 768px) {
-    header {
+    .fixed-header {
         flex-direction: column;
         text-align: center;
-        padding: 10px 15px;
-    }
-    header img {
-        margin-bottom: 10px;
     }
     .nav-container {
         flex-direction: column;
         gap: 10px;
-    }
-    main {
-        padding: 20px;
-    }
-    footer {
-        padding: 10px;
-    }
-    h2 {
-        font-size: 1.4em;
-    }
-    p {
-        font-size: 0.9em;
-    }
-}
-
-@media (max-width: 480px) {
-    header img {
-        width: 60px;
-        height: 60px;
-    }
-    header h1 {
-        font-size: 1.5em;
-    }
-    .nav-container a {
-        font-size: 1em;
-        padding: 6px 10px;
-    }
-    main {
-        padding: 15px;
-    }
-    footer {
-        font-size: 0.8em;
-        padding: 10px;
     }
 }
