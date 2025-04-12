@@ -5,28 +5,29 @@
   padding: 0;
 }
 
-/* Global Body Styles */
+/* General Styles */
 body {
   font-family: "Courier New", Courier, monospace;
   background-color: #000;
   color: #0f0;
-  /* Add top padding to prevent content being hidden under the fixed header */
   padding-top: 100px;
 }
 
-/* Persistent Fixed Header */
 .fixed-header {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  width: 100%;
   background-color: #000;
   border-bottom: 2px solid #0f0;
   padding: 15px 20px;
+  z-index: 1000;
+}
+
+.fixed-header .header-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1000;
 }
 
 .fixed-header img {
@@ -38,10 +39,9 @@ body {
 
 .fixed-header h1 {
   font-size: 1.8em;
-  margin: 0 10px;
+  margin-left: 10px;
+  margin-right: auto;
   color: #00ff00;
-  flex: 1;
-  text-align: center;
 }
 
 .nav-container {
@@ -64,33 +64,27 @@ body {
   color: #000;
 }
 
-/* Main Content Styles */
 main {
   width: 95%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  line-height: 1.6;
 }
 
-/* Writeups Grid on the Writeups Page */
 .writeups-grid {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center;
 }
 
 .writeup-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: #00ff00;
   border: 2px solid #0f0;
-  border-radius: 8px;
   padding: 20px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 8px;
+  color: #00ff00;
+  text-align: center;
+  text-decoration: none;
   min-width: 200px;
 }
 
@@ -104,19 +98,13 @@ main {
   margin-bottom: 10px;
 }
 
-/* Footer Styles */
 footer {
   width: 95%;
-  max-width: 1200px;
-  margin: 30px auto 0;
+  margin: 30px auto;
   border-top: 2px solid #0f0;
   padding: 15px;
   text-align: center;
   background-color: #111;
-}
-
-footer p {
-  font-size: 1em;
   color: #66ff66;
 }
 
@@ -126,38 +114,18 @@ footer p {
     flex-direction: column;
     text-align: center;
   }
+
   .nav-container {
     flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  main {
-    padding: 15px;
-  }
-  footer {
-    padding: 10px;
   }
 }
 
 @media (max-width: 480px) {
-  .fixed-header img {
-    width: 50px;
-    height: 50px;
-  }
   .fixed-header h1 {
     font-size: 1.5em;
   }
-  .nav-container a {
-    font-size: 1em;
-    padding: 6px 10px;
-  }
-  main {
-    padding: 10px;
-  }
-  footer {
-    padding: 8px;
-  }
-  footer p {
-    font-size: 0.8em;
+
+  .writeup-item {
+    min-width: 100%;
   }
 }
