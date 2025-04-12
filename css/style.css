@@ -23,7 +23,6 @@ body {
   background: repeating-linear-gradient(0deg, #001f1f, #001f1f 2px, black 2px, black 4px);
   animation: moveBg 20s linear infinite;
 }
-
 @keyframes moveBg {
   from { background-position: 0 0; }
   to { background-position: 0 1000px; }
@@ -32,20 +31,20 @@ body {
 /* Header */
 .main-header {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;
 }
 .logo {
-  width: 120px;
+  width: 140px;
   border-radius: 50%;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 .title {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 .quote {
   font-style: italic;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #66ffcc;
   margin: 0.3rem 0;
 }
@@ -54,13 +53,15 @@ body {
 .nav {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 2rem;
-  padding: 1rem;
+  padding: 2rem 1rem;
 }
 .nav a {
   text-decoration: none;
   color: #00ffff;
   font-weight: bold;
+  font-size: 1.2rem;
   transition: transform 0.3s ease;
 }
 .nav a:hover {
@@ -101,15 +102,16 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
   .title {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
   .quote {
-    font-size: 0.9rem;
+    font-size: 1rem;
     padding: 0 1rem;
     text-align: center;
   }
   .nav {
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
   }
   .ctf-list {
