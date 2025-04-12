@@ -5,7 +5,7 @@ body {
     color: #0f0;
     margin: 0;
     padding: 0;
-    padding-top: 100px; /* To avoid content being hidden under the fixed header */
+    padding-top: 100px; /* Space for fixed header */
 }
 
 /* Persistent Header */
@@ -19,7 +19,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 15px 20px;
-    z-index: 1000; /* Ensures the header stays above other elements */
+    z-index: 1000;
 }
 .fixed-header img {
     width: 60px;
@@ -69,6 +69,10 @@ footer {
     margin-top: 30px;
     background-color: #111;
 }
+footer p {
+    font-size: 1em;
+    color: #66ff66;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -79,5 +83,38 @@ footer {
     .nav-container {
         flex-direction: column;
         gap: 10px;
+    }
+    main {
+        padding: 15px;
+    }
+    footer {
+        padding: 10px;
+    }
+    footer p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .fixed-header img {
+        width: 50px;
+        height: 50px;
+    }
+    .fixed-header h1 {
+        font-size: 1.5em;
+    }
+    .nav-container a {
+        font-size: 1em;
+        padding: 6px 10px;
+    }
+    main {
+        padding: 10px;
+    }
+    footer {
+        font-size: 0.8em;
+        padding: 8px;
+    }
+    footer p {
+        font-size: 0.8em;
     }
 }
