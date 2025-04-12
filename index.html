@@ -2,38 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sw4rtz</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Persistent Header -->
-  <header class="fixed-header">
-    <div class="header-content">
-      <img src="sw4rtz.png" alt="Profile Picture" />
-      <h1>Sw4rtz</h1>
-      <div class="nav-container">
-        <a href="index.html">Home</a>
-        <a href="writeup.html">Writeups</a>
-      </div>
-    </div>
+  <div class="background-animation"></div>
+
+  <header class="main-header">
+    <img src="assets/sw4rtz.png" alt="Sw4rtz Profile" class="logo" />
+    <h1 class="title">Sw4rtz</h1>
+    <p class="quote">"Break. Learn. Repeat."</p>
+    <p class="quote">"There is no patch for curiosity."</p>
+    <p class="quote">"Unstoppable minds bend the rules."</p>
   </header>
 
-  <main>
-    <section id="home">
-      <h2>Welcome!</h2>
-      <p>
-        Knowledge is limitless, and the journey to learn never ends. At Sw4rtz, we believe in the power of curiosity and the drive to grow every day.
-        Whether you're honing your skills in hacking, diving into programming, or uncovering new pathways in tech, this is your space to explore and innovate.
-      </p>
-      <p>
-        Let's embark on this journey together and keep the fire of learning alive!
-      </p>
-    </section>
-  </main>
+  <nav class="nav">
+    <a href="index.html">🏠 Home</a>
+    <a href="writeups.html">📝 Writeups</a>
+    <a href="https://discord.com" target="_blank">💬 Discord</a>
+  </nav>
 
-  <footer>
-    <p>&copy; Sw4rtz. All rights reserved.</p>
-  </footer>
+  <script src="js/background.js"></script>
 </body>
 </html>
