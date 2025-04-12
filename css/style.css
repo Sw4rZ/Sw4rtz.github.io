@@ -1,124 +1,149 @@
-/* Reset and Base */
+/* Reset & Base Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #00ffcc;
   background-color: #000;
   overflow-x: hidden;
+  position: relative;
   min-height: 100vh;
 }
 
-/* Animated background */
+/* Background animation container (custom JS adds animation) */
 .background-animation {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: repeating-linear-gradient(0deg, #001f1f, #001f1f 2px, black 2px, black 4px);
-  animation: moveBg 20s linear infinite;
-}
-@keyframes moveBg {
-  from { background-position: 0 0; }
-  to { background-position: 0 1000px; }
 }
 
-/* Header */
+/* Header Section */
 .main-header {
   text-align: center;
-  padding: 3rem 1rem;
-}
-.logo {
-  width: 140px;
-  border-radius: 50%;
-  margin-bottom: 1.5rem;
-}
-.title {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-.quote {
-  font-style: italic;
-  font-size: 1.1rem;
-  color: #66ffcc;
-  margin: 0.3rem 0;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
 }
 
-/* Nav */
+.logo {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid #00ffcc;
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.quote {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #00ffcc;
+  opacity: 0.9;
+}
+
+/* Navigation */
 .nav {
   display: flex;
   justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem;
   flex-wrap: wrap;
-  gap: 2rem;
-  padding: 2rem 1rem;
 }
-.nav a {
+
+.nav a,
+.nav-btn {
   text-decoration: none;
-  color: #00ffff;
-  font-weight: bold;
-  font-size: 1.2rem;
-  transition: transform 0.3s ease;
-}
-.nav a:hover {
-  transform: scale(1.1);
-  color: #66ffcc;
-}
-
-/* Writeups */
-.ctf-list {
-  display: flex;
-  justify-content: center;
-  padding: 2rem;
-  flex-wrap: wrap;
-}
-.ctf-item {
-  background: rgba(0, 255, 170, 0.1);
-  border: 1px solid #00ffaa;
-  padding: 1.5rem;
-  margin: 1rem;
-  border-radius: 12px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 250px;
-}
-.ctf-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #00ffaa;
-}
-.ctf-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-.ctf-item h2 {
   color: #00ffcc;
-  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 1rem 1.5rem;
+  border: 2px solid #00ffcc;
+  border-radius: 12px;
+  background: #001f1f;
+  box-shadow: 0 5px 15px rgba(0, 255, 204, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Responsive */
+.nav a:hover,
+.nav-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 255, 204, 0.6);
+}
+
+/* Writeups Page */
+.writeups-header {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.ctf-list {
+  max-width: 600px;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.ctf-item {
+  margin: 2rem 0;
+}
+
+.ctf-item a {
+  text-decoration: none;
+  color: #00ffcc;
+  background-color: #001f1f;
+  padding: 1.5rem 2.5rem;
+  display: inline-block;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  box-shadow: 0 5px 15px rgba(0, 255, 204, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ctf-item a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 255, 204, 0.5);
+}
+
+.ctf-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .title {
     font-size: 2rem;
   }
-  .quote {
-    font-size: 1rem;
-    padding: 0 1rem;
-    text-align: center;
+
+  .logo {
+    width: 130px;
+    height: 130px;
   }
+
   .nav {
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
   }
-  .ctf-list {
-    flex-direction: column;
-    align-items: center;
+
+  .nav a,
+  .nav-btn {
+    width: 80%;
+    text-align: center;
   }
-  .ctf-item {
+
+  .ctf-item a {
     width: 90%;
+    font-size: 1rem;
   }
 }
