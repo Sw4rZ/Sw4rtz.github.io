@@ -1,17 +1,17 @@
-/* Reset + background */
+/* Reset & background */
 body, html {
   margin: 0;
   padding: 0;
   background: #000;
-  color: #fff;
+  color: #00ffcc;
   font-family: 'Courier New', Courier, monospace;
   overflow-x: hidden;
 }
 
-/* Green dots canvas from homepage */
 #dotCanvas {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   z-index: -1;
 }
 
@@ -24,13 +24,13 @@ body, html {
 }
 
 .heading {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 2rem;
   color: #00ffcc;
-  text-shadow: 0 0 10px #00ffcc;
+  text-shadow: 0 0 15px #00ffcc;
 }
 
-/* Timeline Line */
+/* Timeline layout */
 .timeline {
   position: relative;
   display: flex;
@@ -38,70 +38,58 @@ body, html {
   align-items: center;
 }
 
-.line-segment {
+.line.vertical {
   width: 4px;
   background: #00ffcc;
+  box-shadow: 0 0 10px #00ffcc;
+}
+
+.top-line {
   height: 50px;
 }
 
-.line-segment.middle {
-  height: 70px;
+.mid-line {
+  height: 60px;
+}
+
+.bottom-line {
+  height: 80px;
 }
 
 /* Timeline items */
 .timeline-item {
   position: relative;
-  margin: 1rem 0;
   display: flex;
   align-items: center;
-  z-index: 1;
+  margin: 1rem 0;
 }
 
-.timeline-item.left {
-  flex-direction: row-reverse;
-}
-
-.timeline-item.right {
-  flex-direction: row;
-}
-
-.arrow-left,
-.arrow-right {
-  width: 0;
-  height: 0;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-}
-
-.arrow-left {
-  border-right: 15px solid #00ffcc;
-  margin-left: 10px;
-}
-
-.arrow-right {
-  border-left: 15px solid #00ffcc;
+.connector-line {
+  width: 25px;
+  height: 2px;
+  background-color: #00ffcc;
+  box-shadow: 0 0 5px #00ffcc;
   margin-right: 10px;
 }
 
-/* Neon button style */
 .neon-btn {
-  padding: 0.75rem 1.5rem;
+  padding: 0.8rem 1.6rem;
   background: transparent;
   border: 2px solid #00ffcc;
   color: #00ffcc;
   font-weight: bold;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #00ffcc, inset 0 0 5px #00ffcc;
-  transition: transform 0.3s ease;
+  border-radius: 12px;
   text-decoration: none;
+  box-shadow: 0 0 15px #00ffcc, inset 0 0 8px #00ffcc;
+  transition: all 0.3s ease;
 }
 
 .neon-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px #00ffcc, inset 0 0 10px #00ffcc;
+  box-shadow: 0 0 25px #00ffcc, inset 0 0 15px #00ffcc;
 }
 
-/* Flag */
+/* Floating flag */
 .flag-container {
   display: flex;
   flex-direction: column;
@@ -110,33 +98,39 @@ body, html {
 }
 
 .flag {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   background: url('flag.gif') no-repeat center center/contain;
-  animation: float 3s ease-in-out infinite;
+  animation: floatFlag 3s ease-in-out infinite;
 }
 
 .flag-text {
   margin-top: 0.5rem;
   font-weight: bold;
   font-size: 1.2rem;
+  color: #00ffcc;
 }
 
-/* Flag floating animation */
-@keyframes float {
-  0% { transform: translateY(0px); }
+/* Floating animation */
+@keyframes floatFlag {
+  0% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+  100% { transform: translateY(0); }
 }
 
-/* Mobile responsiveness */
+/* Responsive */
 @media (max-width: 600px) {
   .neon-btn {
     font-size: 0.9rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.2rem;
   }
 
-  .line-segment.middle {
-    height: 50px;
+  .connector-line {
+    width: 15px;
+  }
+
+  .flag {
+    width: 40px;
+    height: 40px;
   }
 }
