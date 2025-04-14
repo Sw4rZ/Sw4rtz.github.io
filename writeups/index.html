@@ -3,35 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Writeups</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100%;
-      width: 100%;
-      font-family: 'Orbitron', sans-serif;
-      background-color: black;
-      color: #0ff;
-      overflow-x: hidden;
-    }
-
-    canvas#bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-
+    /* Timeline Structure */
     .timeline {
       position: relative;
-      margin: 100px auto;
       width: 90%;
       max-width: 1000px;
+      margin: 150px auto;
     }
 
     .line {
@@ -40,25 +19,20 @@
       top: 0;
       bottom: 0;
       width: 4px;
-      background: #0ff;
+      background: #00ffff;
       transform: translateX(-50%);
-      box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+      box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
     }
 
     .event {
       position: relative;
       width: 45%;
       padding: 20px;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0, 0, 0, 0.6);
       border: 2px solid #0ff;
       border-radius: 12px;
-      box-shadow: 0 0 10px #0ff;
-      margin: 50px 0;
-      transition: 0.4s ease;
-    }
-
-    .event:hover {
-      transform: scale(1.05);
+      margin: 60px 0;
+      box-shadow: 0 0 15px #0ff;
     }
 
     .event.left {
@@ -71,20 +45,17 @@
       text-align: left;
     }
 
-    .event h2 {
-      margin-bottom: 10px;
-    }
-
     .event a {
+      font-family: 'Orbitron', sans-serif;
       display: inline-block;
       padding: 10px 20px;
       background: #0ff;
-      color: black;
+      color: #000;
       text-decoration: none;
       font-weight: bold;
       border-radius: 8px;
       box-shadow: 0 0 15px #0ff, 0 0 25px #0ff inset;
-      transition: 0.3s ease;
+      transition: 0.3s;
     }
 
     .event a:hover {
@@ -96,20 +67,33 @@
     .circle {
       position: absolute;
       left: 50%;
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
       background: #0ff;
       border-radius: 50%;
       transform: translateX(-50%);
       box-shadow: 0 0 10px #0ff;
     }
 
-    .circle.top {
-      top: 0;
+    .circle.top { top: 0; }
+    .circle.bottom { bottom: 70px; }
+
+    .flag {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 60px;
+      height: 40px;
+      background: url('https://cdn.pixabay.com/photo/2012/04/10/23/30/flag-27002_960_720.png') no-repeat center;
+      background-size: contain;
+      transform: translateX(-50%);
+      animation: float 2s ease-in-out infinite;
     }
 
-    .circle.bottom {
-      bottom: 0;
+    @keyframes float {
+      0% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-5px); }
+      100% { transform: translateX(-50%) translateY(0); }
     }
 
     @media screen and (max-width: 768px) {
@@ -118,72 +102,79 @@
         left: 5% !important;
         text-align: center !important;
       }
-
-      .line {
+      .line { left: 5%; }
+      .flag {
         left: 5%;
+        transform: none;
       }
     }
   </style>
 </head>
 <body>
 
-  <canvas id="bg"></canvas>
+  <!-- Matrix animation canvas -->
+  <canvas id="matrix"></canvas>
 
+  <!-- Timeline -->
   <div class="timeline">
     <div class="line"></div>
     <div class="circle top"></div>
 
     <div class="event left">
-      <h2>Exploit CTF</h2>
+      <h2>exploitx ctf</h2>
       <a href="exploitx.html">View Writeup</a>
     </div>
 
     <div class="event right">
-      <h2>PicoCTF 2021</h2>
+      <h2>picoctf-2021</h2>
       <a href="picoctf-2021.html">View Writeup</a>
     </div>
 
     <div class="circle bottom"></div>
+    <div class="flag"></div>
   </div>
 
-  <!-- Animated glowing star background -->
+  <!-- Matrix Background Animation (copied from home page) -->
   <script>
-    const canvas = document.getElementById('bg');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
+    var canvas = document.getElementById("matrix");
+    var ctx = canvas.getContext("2d");
+
     canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
 
-    let stars = [];
-    for (let i = 0; i < 120; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 1.5,
-        dx: (Math.random() - 0.5) * 0.4,
-        dy: (Math.random() - 0.5) * 0.4
-      });
+    var matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+    matrix = matrix.split("");
+
+    var font_size = 14;
+    var columns = canvas.width / font_size;
+    var drops = [];
+
+    for (var x = 0; x < columns; x++)
+      drops[x] = 1;
+
+    function draw() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#0ff";
+      ctx.font = font_size + "px Orbitron";
+
+      for (var i = 0; i < drops.length; i++) {
+        var text = matrix[Math.floor(Math.random() * matrix.length)];
+        ctx.fillText(text, i * font_size, drops[i] * font_size);
+
+        if (drops[i] * font_size > canvas.height && Math.random() > 0.975)
+          drops[i] = 0;
+
+        drops[i]++;
+      }
     }
 
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#0ff';
-      stars.forEach(star => {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-        ctx.fill();
-        star.x += star.dx;
-        star.y += star.dy;
-        if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
-        if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
-      });
-      requestAnimationFrame(animate);
-    }
+    setInterval(draw, 35);
 
-    animate();
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
+    window.addEventListener("resize", () => {
       canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
     });
   </script>
 </body>
