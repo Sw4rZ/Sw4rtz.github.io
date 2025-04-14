@@ -1,171 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Writeups</title>
-  <link rel="stylesheet" href="../style.css">
-  <script src="../background.js" defer></script>
+  <link rel="stylesheet" href="style.css" />
   <style>
-    body, html {
+    body {
       margin: 0;
-      padding: 0;
-      font-family: 'Orbitron', sans-serif;
       overflow-x: hidden;
       color: #0ff;
+      font-family: 'Orbitron', sans-serif;
+      background-color: black;
     }
 
     h1 {
       text-align: center;
-      margin-top: 80px;
       font-size: 3rem;
-      text-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
-    }
-
-    canvas#matrix {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
+      margin: 50px 0;
+      text-shadow: 0 0 20px #0ff;
     }
 
     .timeline {
       position: relative;
-      width: 90%;
       max-width: 1200px;
-      margin: 100px auto 150px;
+      margin: 0 auto;
     }
 
-    .line {
+    .timeline::after {
+      content: '';
       position: absolute;
-      left: 50%;
+      width: 4px;
+      background-color: #0ff;
       top: 0;
       bottom: 0;
-      width: 4px;
-      background: #0ff;
-      transform: translateX(-50%);
-      box-shadow: 0 0 10px #0ff, 0 0 30px #0ff;
-    }
-
-    .event {
-      position: relative;
-      width: 40%;
-      padding: 20px;
-      margin: 80px 0;
-      background: rgba(0, 0, 0, 0.6);
-      border: 2px solid #0ff;
-      border-radius: 12px;
-      box-shadow: 0 0 20px #0ff;
-      font-size: 1.2rem;
-    }
-
-    .event.left {
-      left: 0;
-      text-align: right;
-    }
-
-    .event.right {
-      left: 60%;
-      text-align: left;
-    }
-
-    .event h2 {
-      margin-bottom: 10px;
-      font-size: 1.5rem;
-      color: #0ff;
-    }
-
-    .event a {
-      text-decoration: none;
-      background: #0ff;
-      color: #000;
-      padding: 10px 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #0ff, inset 0 0 10px #000;
-      transition: 0.3s ease;
-    }
-
-    .event a:hover {
-      background: #0cc;
-      color: #fff;
-      transform: scale(1.1);
-    }
-
-    .circle {
-      position: absolute;
       left: 50%;
+      margin-left: -2px;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 10px #0ff; }
+      100% { box-shadow: 0 0 20px #0ff; }
+    }
+
+    .container {
+      padding: 20px 40px;
+      position: relative;
+      background-color: rgba(0, 255, 255, 0.1);
+      width: 50%;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #0ff;
+      transition: transform 0.3s ease;
+    }
+
+    .container:hover {
+      transform: scale(1.05);
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      left: 50%;
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      top: 15px;
       width: 20px;
       height: 20px;
-      background: #0ff;
+      background-color: #0ff;
       border-radius: 50%;
-      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    .left::before {
+      right: -10px;
+    }
+
+    .right::before {
+      left: -10px;
+    }
+
+    .container a {
+      display: inline-block;
+      padding: 15px 25px;
+      font-size: 1.2rem;
+      background: black;
+      border: 2px solid #0ff;
+      color: #0ff;
+      text-decoration: none;
       box-shadow: 0 0 10px #0ff;
+      transition: all 0.3s ease;
     }
 
-    .circle.top {
-      top: 0;
-    }
-
-    .circle.bottom {
-      bottom: 70px;
+    .container a:hover {
+      background-color: #0ff;
+      color: black;
+      box-shadow: 0 0 20px #0ff;
     }
 
     .flag {
       position: absolute;
-      bottom: 0;
+      bottom: -100px;
       left: 50%;
-      width: 70px;
-      height: 60px;
       transform: translateX(-50%);
-      background: url('https://cdn.pixabay.com/photo/2012/04/10/23/30/flag-27002_960_720.png') no-repeat center;
-      background-size: contain;
-      animation: float 2.5s ease-in-out infinite;
+      width: 60px;
+      height: 40px;
+      background: url('flag.png') no-repeat center center / cover;
+      animation: float 3s ease-in-out infinite;
     }
 
     @keyframes float {
-      0% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(-10px); }
-      100% { transform: translateX(-50%) translateY(0); }
-    }
-
-    @media screen and (max-width: 768px) {
-      .event {
-        width: 90% !important;
-        left: 5% !important;
-        text-align: center !important;
-      }
-
-      .line {
-        left: 5%;
-      }
-
-      .flag {
-        left: 5%;
-        transform: none;
-      }
+      0% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, -10px); }
+      100% { transform: translate(-50%, 0); }
     }
   </style>
 </head>
 <body>
-  <canvas id="matrix"></canvas>
-
-  <h1>WRITEUPS</h1>
-
+  <canvas id="matrix-canvas"></canvas>
+  <h1>Writeups</h1>
   <div class="timeline">
-    <div class="line"></div>
-    <div class="circle top"></div>
-
-    <div class="event left">
-      <h2>exploitx ctf</h2>
-      <a href="exploitx.html">View Writeup</a>
+    <div class="container left">
+      <a href="exploitx.html">exploitx ctf</a>
     </div>
-
-    <div class="event right">
-      <h2>picoctf-2021</h2>
-      <a href="picoctf-2021.html">View Writeup</a>
+    <div class="container right">
+      <a href="picoctf2021.html">picoctf-2021</a>
     </div>
-
-    <div class="circle bottom"></div>
     <div class="flag"></div>
   </div>
+
+  <script src="background.js"></script>
 </body>
 </html>
