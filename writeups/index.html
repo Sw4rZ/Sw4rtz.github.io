@@ -4,38 +4,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Writeups</title>
-  <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="neon-line.css" />
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+      font-family: monospace;
+      color: #00f6ff;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px #00f6ff, 0 0 20px #00f6ff;
+    }
+  </style>
 </head>
 <body>
-  <!-- Background Dots Canvas -->
-  <canvas id="background-canvas"></canvas>
+  <canvas id="backgroundCanvas"></canvas>
+  <h1>WRITEUPS</h1>
 
-  <!-- Central Timeline and Buttons -->
   <div class="vertical-line-container">
-    
-    <!-- Glowing Vertical Line -->
     <div class="vertical-line"></div>
 
-    <!-- Buttons in the center -->
     <div class="middle-buttons">
-      <div class="arrow-container top-arrow">
-        <a href="exploitx.html" class="arrow-button">exploit ctf</a>
-        <div class="arrow-right"></div>
-      </div>
-
-      <div class="arrow-container bottom-arrow">
-        <a href="picoctf-2021.html" class="arrow-button">picoctf-2021</a>
+      <div class="arrow-container left">
+        <a href="../exploitctf/index.html" class="arrow-button">exploit ctf</a>
         <div class="arrow-left"></div>
+      </div>
+      <div class="arrow-container right">
+        <div class="arrow-right"></div>
+        <a href="../picoctf-2021/index.html" class="arrow-button">picoctf-2021</a>
       </div>
     </div>
 
-    <!-- Flag at the bottom -->
     <div class="flag-pixel"></div>
-
   </div>
 
-  <!-- Green Dots Animation -->
-  <script src="../js/background.js"></script>
+  <script src="background.js"></script>
 </body>
 </html>
