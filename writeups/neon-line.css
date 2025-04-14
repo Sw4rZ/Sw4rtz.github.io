@@ -1,17 +1,17 @@
 .vertical-line-container {
   position: fixed;
-  top: 0;
+  top: 80px;
   left: 50%;
   transform: translateX(-50%);
-  height: 100vh;
+  height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 10;
+  z-index: 2;
   pointer-events: none;
 }
 
-/* Glowing Vertical Line */
+/* Glowing vertical line */
 .vertical-line {
   width: 4px;
   height: 100%;
@@ -21,43 +21,48 @@
   position: absolute;
 }
 
-/* Center the buttons */
+/* Buttons centered on line */
 .middle-buttons {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
+  top: 40%;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 50px;
   pointer-events: auto;
 }
 
-/* Button arrow containers */
 .arrow-container {
   display: flex;
   align-items: center;
+  justify-content: center;
   animation: slideIn 1s ease-out forwards;
   opacity: 0;
 }
 
+.arrow-container.left {
+  justify-content: flex-start;
+}
+
+.arrow-container.right {
+  justify-content: flex-end;
+}
+
 .arrow-container:nth-child(1) {
   animation-delay: 0.3s;
-  transform: translateX(-80px);
+  transform: translateX(-100px);
 }
-
 .arrow-container:nth-child(2) {
   animation-delay: 0.6s;
-  transform: translateX(80px);
+  transform: translateX(100px);
 }
 
-/* Glowing arrow-style buttons */
 .arrow-button {
   background: #000;
   border: 2px solid #00f6ff;
   color: #00f6ff;
   text-decoration: none;
   padding: 12px 24px;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 0 12px #00f6ff;
   font-family: monospace;
   font-size: 1.1rem;
@@ -72,9 +77,9 @@
   transform: scale(1.05);
 }
 
-/* Arrow designs */
-.arrow-right,
-.arrow-left {
+/* Arrows */
+.arrow-left,
+.arrow-right {
   width: 20px;
   height: 20px;
   border: solid #00f6ff;
@@ -83,23 +88,22 @@
   box-shadow: 0 0 5px #00f6ff;
 }
 
-.arrow-right {
-  transform: rotate(-45deg);
-  margin-left: 10px;
-}
-
 .arrow-left {
   transform: rotate(135deg);
+  margin-left: 10px;
+}
+.arrow-right {
+  transform: rotate(-45deg);
   margin-right: 10px;
 }
 
-/* Animated Flag Icon */
+/* Flag pixel gif */
 .flag-pixel {
   position: absolute;
-  bottom: 20px;
-  width: 32px;
-  height: 32px;
-  background-image: url('flag-pixel.gif'); /* <- make sure this file exists */
+  bottom: -40px;
+  width: 36px;
+  height: 36px;
+  background-image: url('flag-pixel.gif');
   background-size: contain;
   background-repeat: no-repeat;
   animation: bounce 1s infinite ease-in-out;
@@ -127,6 +131,6 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
   }
 }
