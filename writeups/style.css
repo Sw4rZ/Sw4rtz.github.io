@@ -1,127 +1,170 @@
-/* Background setup */
-html, body {
+body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Courier New', monospace;
-  background: black;
+  font-family: 'Orbitron', sans-serif;
+  background-color: black;
   overflow-x: hidden;
-  color: #00ffcc;
+  color: #0f0;
 }
 
-#bgCanvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
-/* Centered layout */
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem 1rem;
-}
-
-.title {
-  font-size: 3rem;
-  text-shadow: 0 0 20px #00ffcc;
-  margin-bottom: 2rem;
-}
-
-/* Timeline vertical line */
-.timeline {
+.writeups-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  z-index: 1;
 }
 
-.line {
+.page-title {
+  color: #00ffcc;
+  text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+  font-size: 2.5rem;
+  margin-top: 40px;
+}
+
+.timeline {
+  position: relative;
+  margin-top: 40px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.line-start, .line-connector, .line-to-flag {
   width: 4px;
+  background: #00ffcc;
+  box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+  margin: 0 auto;
+}
+
+.line-start {
+  height: 80px;
+}
+
+.line-connector, .line-to-flag {
+  height: 100px;
+}
+
+.button-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.button-wrapper.left {
+  flex-direction: row-reverse;
+}
+
+.button-wrapper.right {
+  flex-direction: row;
+}
+
+.neon-btn {
+  background: transparent;
+  border: 2px solid #00ffcc;
+  color: #00ffcc;
+  padding: 12px 24px;
+  font-weight: bold;
+  border-radius: 10px;
+  text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+  box-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc inset;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.neon-btn:hover {
+  transform: scale(1.1);
+}
+
+.arrow-left, .arrow-right {
+  width: 30px;
+  height: 2px;
+  background-color: #00ffcc;
+  position: relative;
+  box-shadow: 0 0 10px #00ffcc;
+}
+
+.arrow-left::after,
+.arrow-right::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  border: 6px solid transparent;
+}
+
+.arrow-left::after {
+  right: 0;
+  border-left-color: #00ffcc;
+}
+
+.arrow-right::after {
+  left: 0;
+  border-right-color: #00ffcc;
+}
+
+.flag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.flag-pole {
+  width: 6px;
+  height: 100px;
   background: #00ffcc;
   box-shadow: 0 0 10px #00ffcc;
 }
 
-.top-line {
-  height: 50px;
-}
-
-.mid-line {
-  height: 60px;
-}
-
-.bottom-line {
-  height: 80px;
-}
-
-/* Branch section for each button */
-.branch {
-  display: flex;
-  align-items: center;
-  margin: 1rem 0;
-}
-
-.arrow {
-  width: 25px;
-  height: 2px;
+.flag-cloth {
+  width: 60px;
+  height: 40px;
   background: #00ffcc;
-  margin-right: 10px;
-  box-shadow: 0 0 5px #00ffcc;
+  position: relative;
+  animation: wave 2s ease-in-out infinite;
+  transform-origin: left;
+  clip-path: polygon(0 0, 100% 20%, 80% 40%, 100% 60%, 0 80%);
+  box-shadow: 0 0 15px #00ffcc;
+  margin-left: 8px;
 }
 
-/* Button styles */
-.neon-btn {
-  padding: 0.7rem 1.4rem;
-  font-size: 1rem;
-  color: #00ffcc;
-  text-decoration: none;
-  border: 2px solid #00ffcc;
-  border-radius: 12px;
-  background: transparent;
-  box-shadow: 0 0 15px #00ffcc, inset 0 0 10px #00ffcc;
-  transition: all 0.3s ease;
+@keyframes wave {
+  0% { transform: rotateZ(0deg); }
+  50% { transform: rotateZ(6deg); }
+  100% { transform: rotateZ(0deg); }
 }
 
-.neon-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px #00ffcc, inset 0 0 15px #00ffcc;
+/* Dot background from home page */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
 }
 
-/* Flag styling */
-.flag-container {
-  margin-top: 1.5rem;
-  animation: floatFlag 3s ease-in-out infinite;
+canvas#bg-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
-.flag {
-  width: 50px;
-  height: auto;
-}
-
-/* Floating effect */
-@keyframes floatFlag {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-
-/* Mobile responsiveness */
+/* Mobile optimization */
 @media (max-width: 600px) {
-  .title {
-    font-size: 2rem;
-  }
-
   .neon-btn {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
+    font-size: 14px;
+    padding: 10px 18px;
   }
 
-  .arrow {
-    width: 15px;
+  .button-wrapper {
+    flex-direction: column !important;
+    align-items: center;
   }
 
-  .flag {
-    width: 40px;
+  .arrow-left, .arrow-right {
+    display: none;
   }
 }
