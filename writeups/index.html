@@ -1,105 +1,47 @@
+<!-- File: writeups/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Writeups</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- ✅ Your Theme Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <!-- ✅ Custom Timeline Styles -->
-  <link rel="stylesheet" href="writeups-timeline.css">
-
-  <!-- ✅ Starry Background Styles (from your theme) -->
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #000;
-      color: #fff;
-      font-family: 'Share Tech Mono', monospace;
-      overflow-x: hidden;
-    }
-
-    canvas#background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-
-    h1 {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 36px;
-      color: white;
-    }
-  </style>
+  <title>Writeups</title>
+  <link rel="stylesheet" href="../assets/css/main.css"> <!-- Use your theme CSS -->
+  <link rel="stylesheet" href="writeups.css"> <!-- Custom styles for timeline -->
 </head>
 <body>
+  <canvas id="background-canvas"></canvas>
+  <div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
 
-  <!-- ✅ Background Canvas -->
-  <canvas id="background"></canvas>
+  <main class="container">
+    <h1 class="writeup-title">Writeups</h1>
 
-  <!-- ✅ Page Heading -->
-  <h1>Writeups</h1>
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
 
-  <!-- ✅ Timeline Section -->
-  <div class="timeline">
-    <div class="timeline-start"></div>
-    <div class="timeline-line"></div>
+      <!-- Starting pixel node -->
+      <div class="start-point"></div>
 
-    <!-- Entry Buttons -->
-    <a href="exploitx.html" class="timeline-entry left animate-left">exploitx ctf</a>
-    <a href="picoctf-2021.html" class="timeline-entry right animate-right">picoctf 2021</a>
+      <!-- Exploitx icon -->
+      <a href="exploitx.html" class="timeline-entry left-entry">
+        <div class="entry-icon">💣</div>
+        <div class="entry-label">Exploitx CTF</div>
+      </a>
 
-    <!-- Pixel Flag at End -->
-    <div class="timeline-flag">
-      <div class="flag-pole"></div>
-      <div class="flag-waves">
-        <div class="wave wave1"></div>
-        <div class="wave wave2"></div>
-        <div class="wave wave3"></div>
+      <!-- PicoCTF icon -->
+      <a href="picoctf-2021.html" class="timeline-entry right-entry">
+        <div class="entry-icon">🧩</div>
+        <div class="entry-label">PicoCTF 2021</div>
+      </a>
+
+      <!-- Animated pixel flag at the end -->
+      <div class="flag-end">
+        <div class="pixel-flag"></div>
       </div>
     </div>
-  </div>
+  </main>
 
-  <!-- ✅ Animated Background Script (Stars) -->
-  <script>
-    const canvas = document.getElementById('background');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const stars = Array.from({ length: 100 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      radius: Math.random() * 1.5,
-      velocity: Math.random() * 0.5 + 0.2
-    }));
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (const star of stars) {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
-        ctx.fillStyle = '#fff';
-        ctx.fill();
-        star.y += star.velocity;
-        if (star.y > canvas.height) {
-          star.y = 0;
-          star.x = Math.random() * canvas.width;
-        }
-      }
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
-  </script>
-
+  <script src="../assets/js/animated-bg.js"></script> <!-- Your animated background file -->
 </body>
 </html>
