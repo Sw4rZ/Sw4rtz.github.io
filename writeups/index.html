@@ -4,43 +4,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Writeups</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dot.css"> <!-- This is your home page dot background -->
 </head>
 <body>
-  <!-- Green dots background -->
-  <canvas id="bgCanvas"></canvas>
+  <div class="background">
+    <canvas id="bg-canvas"></canvas>
+  </div>
 
-  <div class="container">
-    <h1 class="title">WRITEUPS</h1>
-
-    <!-- Timeline structure -->
+  <div class="writeups-container">
+    <h1 class="page-title">WRITEUPS</h1>
+    
     <div class="timeline">
-      <!-- Line from heading down -->
-      <div class="line top-line"></div>
+      <div class="line-start"></div>
 
-      <!-- First button -->
-      <div class="branch">
-        <div class="arrow"></div>
-        <a href="exploitx.html" class="neon-btn">Exploitx CTF</a>
+      <div class="button-wrapper left">
+        <a href="#" class="neon-btn">Exploitx CTF</a>
+        <div class="arrow-left"></div>
       </div>
 
-      <div class="line mid-line"></div>
+      <div class="line-connector"></div>
 
-      <!-- Second button -->
-      <div class="branch">
-        <div class="arrow"></div>
-        <a href="picoctf-2021.html" class="neon-btn">picoCTF-2021</a>
+      <div class="button-wrapper right">
+        <a href="#" class="neon-btn">picoCTF-2021</a>
+        <div class="arrow-right"></div>
       </div>
 
-      <div class="line bottom-line"></div>
+      <div class="line-to-flag"></div>
 
-      <!-- Animated floating flag -->
-      <div class="flag-container">
-        <img src="flag-pixel.gif" class="flag" />
+      <div class="flag">
+        <div class="flag-pole"></div>
+        <div class="flag-cloth"></div>
       </div>
     </div>
   </div>
 
-  <script src="../js/background.js"></script>
+  <script src="dot.js"></script>
 </body>
 </html>
