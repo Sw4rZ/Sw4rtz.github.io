@@ -1,49 +1,187 @@
-<!-- File: writeups/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Writeups</title>
-  <link rel="stylesheet" href="../assets/css/main.css"> <!-- Keep homepage theme -->
-  <link rel="stylesheet" href="writeups.css"> <!-- Custom timeline styles -->
+
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset and general styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow-x: hidden;
+      font-family: 'Orbitron', sans-serif;
+      background-color: black;
+      color: #0ff;
+    }
+
+    canvas#bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 1em;
+      text-shadow: 0 0 5px #0ff, 0 0 15px #0ff;
+    }
+
+    /* Timeline container */
+    .timeline {
+      position: relative;
+      width: 90%;
+      margin: auto;
+      padding-top: 100px;
+    }
+
+    /* Center vertical line */
+    .line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: #0ff;
+      box-shadow: 0 0 10px #0ff;
+    }
+
+    /* Each writeup box */
+    .entry {
+      position: relative;
+      width: 45%;
+      margin: 60px 0;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      border: 2px solid #0ff;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #0ff;
+      transition: transform 0.5s ease, box-shadow 0.3s ease;
+    }
+
+    .entry:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #0ff;
+    }
+
+    .entry.left {
+      left: 0;
+      transform: translateX(-10%);
+      text-align: right;
+    }
+
+    .entry.right {
+      left: 55%;
+      transform: translateX(10%);
+      text-align: left;
+    }
+
+    .entry h2 {
+      margin: 0 0 10px;
+      font-size: 1.5rem;
+    }
+
+    .entry a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #0ff;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 10px;
+      margin-top: 10px;
+      box-shadow: 0 0 15px #0ff, 0 0 20px #0ff inset;
+      transition: all 0.3s ease;
+    }
+
+    .entry a:hover {
+      background-color: #0cc;
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    @media screen and (max-width: 768px) {
+      .entry {
+        width: 90% !important;
+        left: 5% !important;
+        text-align: center !important;
+        transform: none !important;
+      }
+
+      .line {
+        left: 5%;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <canvas id="background-canvas"></canvas>
-  <div id="stars"></div>
-  <div id="stars2"></div>
-  <div id="stars3"></div>
+  <canvas id="bg"></canvas>
 
-  <main class="container">
-    <h1 class="writeup-title glitch" data-text="Writeups">Writeups</h1>
+  <div class="timeline">
+    <div class="line"></div>
 
-    <div class="timeline-wrapper">
-      <div class="timeline-line"></div>
-
-      <!-- Start Node -->
-      <div class="start-node"></div>
-
-      <!-- Exploitx Icon -->
-      <a href="exploitx.html" class="timeline-entry left-entry">
-        <div class="entry-connector"></div>
-        <div class="entry-icon">💣</div>
-        <div class="entry-label">Exploitx CTF</div>
-      </a>
-
-      <!-- PicoCTF Icon -->
-      <a href="picoctf-2021.html" class="timeline-entry right-entry">
-        <div class="entry-connector"></div>
-        <div class="entry-icon">🧩</div>
-        <div class="entry-label">PicoCTF 2021</div>
-      </a>
-
-      <!-- Waving Pixel Flag -->
-      <div class="pixel-flag-container">
-        <div class="pixel-flag"></div>
-      </div>
+    <div class="entry left">
+      <h2>ExploitX CTF</h2>
+      <a href="exploitx.html">View Writeup</a>
     </div>
-  </main>
 
-  <script src="../assets/js/animated-bg.js"></script>
+    <div class="entry right">
+      <h2>PicoCTF 2021</h2>
+      <a href="picoctf-2021.html">View Writeup</a>
+    </div>
+  </div>
+
+  <!-- Animated Background Script -->
+  <script>
+    const canvas = document.getElementById('bg');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let stars = [];
+    for (let i = 0; i < 150; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.5,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#0ff';
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+        ctx.fill();
+        star.x += star.dx;
+        star.y += star.dy;
+
+        if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
+        if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
+      });
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
 </body>
 </html>
