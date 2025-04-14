@@ -11,7 +11,7 @@
   pointer-events: none;
 }
 
-/* Glowing Line */
+/* Glowing Vertical Line */
 .vertical-line {
   width: 4px;
   height: 100%;
@@ -32,7 +32,7 @@
   pointer-events: auto;
 }
 
-/* Neon Buttons */
+/* Button arrow containers */
 .arrow-container {
   display: flex;
   align-items: center;
@@ -40,9 +40,17 @@
   opacity: 0;
 }
 
-.arrow-container:nth-child(1) { animation-delay: 0.3s; transform: translateX(-80px); }
-.arrow-container:nth-child(2) { animation-delay: 0.6s; transform: translateX(80px); }
+.arrow-container:nth-child(1) {
+  animation-delay: 0.3s;
+  transform: translateX(-80px);
+}
 
+.arrow-container:nth-child(2) {
+  animation-delay: 0.6s;
+  transform: translateX(80px);
+}
+
+/* Glowing arrow-style buttons */
 .arrow-button {
   background: #000;
   border: 2px solid #00f6ff;
@@ -64,7 +72,7 @@
   transform: scale(1.05);
 }
 
-/* Arrow icons */
+/* Arrow designs */
 .arrow-right,
 .arrow-left {
   width: 20px;
@@ -73,28 +81,38 @@
   border-width: 0 4px 4px 0;
   padding: 4px;
   box-shadow: 0 0 5px #00f6ff;
+}
+
+.arrow-right {
+  transform: rotate(-45deg);
   margin-left: 10px;
 }
 
-.arrow-right { transform: rotate(-45deg); }
-.arrow-left { transform: rotate(135deg); margin-left: 0; margin-right: 10px; }
+.arrow-left {
+  transform: rotate(135deg);
+  margin-right: 10px;
+}
 
-/* Pixel Flag (bottom) */
+/* Animated Flag Icon */
 .flag-pixel {
   position: absolute;
   bottom: 20px;
-  width: 24px;
-  height: 24px;
-  background-image: url('flag-pixel.gif'); /* <-- Add your pixel flag GIF here */
+  width: 32px;
+  height: 32px;
+  background-image: url('flag-pixel.gif'); /* <- make sure this file exists */
   background-size: contain;
   background-repeat: no-repeat;
-  animation: bounce 1s infinite;
+  animation: bounce 1s infinite ease-in-out;
 }
 
 /* Animations */
 @keyframes glow {
-  from { box-shadow: 0 0 10px #00f6ff, 0 0 20px #00f6ff; }
-  to   { box-shadow: 0 0 20px #00f6ff, 0 0 30px #00f6ff; }
+  from {
+    box-shadow: 0 0 10px #00f6ff, 0 0 20px #00f6ff;
+  }
+  to {
+    box-shadow: 0 0 20px #00f6ff, 0 0 30px #00f6ff;
+  }
 }
 
 @keyframes slideIn {
@@ -105,6 +123,10 @@
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
