@@ -7,42 +7,40 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Dot animation background canvas -->
-  <canvas id="dotCanvas"></canvas>
+  <!-- Green dots background -->
+  <canvas id="bgCanvas"></canvas>
 
   <div class="container">
-    <h1 class="heading">WRITEUPS</h1>
+    <h1 class="title">WRITEUPS</h1>
 
+    <!-- Timeline structure -->
     <div class="timeline">
-      <!-- Line from heading -->
-      <div class="line vertical top-line"></div>
+      <!-- Line from heading down -->
+      <div class="line top-line"></div>
 
-      <!-- First Button -->
-      <div class="timeline-item">
-        <div class="connector-line"></div>
+      <!-- First button -->
+      <div class="branch">
+        <div class="arrow"></div>
         <a href="exploitx.html" class="neon-btn">Exploitx CTF</a>
       </div>
 
-      <!-- Connector Line -->
-      <div class="line vertical mid-line"></div>
+      <div class="line mid-line"></div>
 
-      <!-- Second Button -->
-      <div class="timeline-item">
-        <div class="connector-line"></div>
+      <!-- Second button -->
+      <div class="branch">
+        <div class="arrow"></div>
         <a href="picoctf-2021.html" class="neon-btn">picoCTF-2021</a>
       </div>
 
-      <!-- Final Line to Flag -->
-      <div class="line vertical bottom-line"></div>
+      <div class="line bottom-line"></div>
 
-      <!-- Floating Flag -->
+      <!-- Animated floating flag -->
       <div class="flag-container">
-        <div class="flag"></div>
-        <p class="flag-text">FLAG</p>
+        <img src="flag-pixel.gif" class="flag" />
       </div>
     </div>
   </div>
 
-  <script src="dots.js"></script>
+  <script src="../js/background.js"></script>
 </body>
 </html>
