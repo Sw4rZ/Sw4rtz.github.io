@@ -5,30 +5,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Writeups</title>
-  <link rel="stylesheet" href="../css/style.css"> <!-- Main CSS -->
-  <link rel="stylesheet" href="writeups-timeline.css"> <!-- Existing timeline styles -->
-  <link rel="stylesheet" href="neon-line.css"> <!-- New vertical line & flag styles -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="writeups-timeline.css">
+  <link rel="stylesheet" href="neon-line.css"> <!-- Custom vertical line + arrow style -->
 </head>
 <body>
-  <!-- Background Canvas -->
+  <!-- Background -->
   <canvas id="background-canvas"></canvas>
   <div id="stars"></div>
   <div id="stars2"></div>
   <div id="stars3"></div>
 
-  <!-- Your existing writeup content can go here -->
-  <div class="content">
-    <h1>Writeups Timeline</h1>
-    <!-- Your timeline or writeup layout -->
-  </div>
-
-  <!-- Vertical Line & Flag -->
+  <!-- Vertical Line + Flag -->
   <div class="vertical-line-container">
+    <div class="arrow-container top-arrow">
+      <a href="exploitx.html" class="arrow-button">exploit ctf</a>
+      <div class="arrow-right"></div>
+    </div>
+
     <div class="vertical-line"></div>
+
+    <div class="arrow-container bottom-arrow">
+      <a href="picoctf-2021.html" class="arrow-button">picoctf-2021</a>
+      <div class="arrow-left"></div>
+    </div>
+
     <div class="flag"></div>
   </div>
 
-  <!-- JavaScript -->
+  <!-- JS -->
   <script src="../js/background.js"></script>
 </body>
 </html>
