@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Writeups</title>
-  <link rel="stylesheet" href="../assets/css/main.css"> <!-- Use your theme CSS -->
-  <link rel="stylesheet" href="writeups.css"> <!-- Custom styles for timeline -->
+  <link rel="stylesheet" href="../assets/css/main.css"> <!-- Keep homepage theme -->
+  <link rel="stylesheet" href="writeups.css"> <!-- Custom timeline styles -->
 </head>
 <body>
   <canvas id="background-canvas"></canvas>
@@ -15,33 +15,35 @@
   <div id="stars3"></div>
 
   <main class="container">
-    <h1 class="writeup-title">Writeups</h1>
+    <h1 class="writeup-title glitch" data-text="Writeups">Writeups</h1>
 
-    <div class="timeline-container">
+    <div class="timeline-wrapper">
       <div class="timeline-line"></div>
 
-      <!-- Starting pixel node -->
-      <div class="start-point"></div>
+      <!-- Start Node -->
+      <div class="start-node"></div>
 
-      <!-- Exploitx icon -->
+      <!-- Exploitx Icon -->
       <a href="exploitx.html" class="timeline-entry left-entry">
+        <div class="entry-connector"></div>
         <div class="entry-icon">💣</div>
         <div class="entry-label">Exploitx CTF</div>
       </a>
 
-      <!-- PicoCTF icon -->
+      <!-- PicoCTF Icon -->
       <a href="picoctf-2021.html" class="timeline-entry right-entry">
+        <div class="entry-connector"></div>
         <div class="entry-icon">🧩</div>
         <div class="entry-label">PicoCTF 2021</div>
       </a>
 
-      <!-- Animated pixel flag at the end -->
-      <div class="flag-end">
+      <!-- Waving Pixel Flag -->
+      <div class="pixel-flag-container">
         <div class="pixel-flag"></div>
       </div>
     </div>
   </main>
 
-  <script src="../assets/js/animated-bg.js"></script> <!-- Your animated background file -->
+  <script src="../assets/js/animated-bg.js"></script>
 </body>
 </html>
