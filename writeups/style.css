@@ -1,170 +1,129 @@
-body, html {
+/* Reset & base */
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Orbitron', sans-serif;
-  background-color: black;
+  box-sizing: border-box;
+}
+body, html {
+  height: 100%;
+  background: black;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
   overflow-x: hidden;
-  color: #0f0;
 }
 
-.writeups-container {
+/* Dot animation canvas */
+#dotCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Title */
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding-top: 2rem;
+}
+
+/* Structure container */
+.container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  z-index: 1;
+  gap: 60px;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
 }
 
-.page-title {
-  color: #00ffcc;
-  text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
-  font-size: 2.5rem;
-  margin-top: 40px;
-}
-
-.timeline {
-  position: relative;
-  margin-top: 40px;
-  width: 100%;
-  max-width: 500px;
-}
-
-.line-start, .line-connector, .line-to-flag {
-  width: 4px;
-  background: #00ffcc;
-  box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
-  margin: 0 auto;
-}
-
-.line-start {
-  height: 80px;
-}
-
-.line-connector, .line-to-flag {
-  height: 100px;
-}
-
-.button-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 20px 0;
-}
-
-.button-wrapper.left {
-  flex-direction: row-reverse;
-}
-
-.button-wrapper.right {
-  flex-direction: row;
-}
-
-.neon-btn {
-  background: transparent;
-  border: 2px solid #00ffcc;
-  color: #00ffcc;
-  padding: 12px 24px;
-  font-weight: bold;
-  border-radius: 10px;
-  text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
-  box-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc inset;
-  text-decoration: none;
-  transition: transform 0.3s ease;
-}
-
-.neon-btn:hover {
-  transform: scale(1.1);
-}
-
-.arrow-left, .arrow-right {
-  width: 30px;
-  height: 2px;
-  background-color: #00ffcc;
-  position: relative;
-  box-shadow: 0 0 10px #00ffcc;
-}
-
-.arrow-left::after,
-.arrow-right::after {
-  content: '';
+/* Main vertical line */
+.tree-line {
   position: absolute;
-  top: -5px;
-  border: 6px solid transparent;
+  top: 4.5rem;
+  width: 4px;
+  height: 80%;
+  background: #00f0ff;
+  z-index: 0;
 }
 
-.arrow-left::after {
-  right: 0;
-  border-left-color: #00ffcc;
+/* Connector line to button or flag */
+.connector-line {
+  width: 4px;
+  height: 40px;
+  background: #00f0ff;
+}
+.connector-line.middle {
+  height: 50px;
+}
+.connector-line.bottom {
+  height: 60px;
 }
 
-.arrow-right::after {
-  left: 0;
-  border-right-color: #00ffcc;
+/* Neon-style button */
+.neon-button {
+  padding: 12px 30px;
+  color: #00f0ff;
+  border: 2px solid #00f0ff;
+  background: transparent;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
+  box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff33;
+  border-radius: 8px;
+  z-index: 2;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+.neon-button:hover {
+  background: #00f0ff33;
+  transform: scale(1.05);
 }
 
+/* Arrow from button to line */
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 10px solid #00f0ff;
+  margin-top: -8px;
+}
+
+/* Flag animation */
 .flag {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 40px;
 }
-
-.flag-pole {
-  width: 6px;
-  height: 100px;
-  background: #00ffcc;
-  box-shadow: 0 0 10px #00ffcc;
+.pole {
+  width: 4px;
+  height: 50px;
+  background: #00f0ff;
 }
-
-.flag-cloth {
+.flag-wave {
   width: 60px;
   height: 40px;
-  background: #00ffcc;
-  position: relative;
-  animation: wave 2s ease-in-out infinite;
-  transform-origin: left;
-  clip-path: polygon(0 0, 100% 20%, 80% 40%, 100% 60%, 0 80%);
-  box-shadow: 0 0 15px #00ffcc;
-  margin-left: 8px;
+  background: linear-gradient(45deg, #ff0044, #ffcc00, #00ff99);
+  border-radius: 4px;
+  margin-top: 4px;
+  animation: wave 1s ease-in-out infinite alternate;
 }
-
 @keyframes wave {
-  0% { transform: rotateZ(0deg); }
-  50% { transform: rotateZ(6deg); }
-  100% { transform: rotateZ(0deg); }
+  0% { transform: rotateZ(3deg) translateX(2px); }
+  100% { transform: rotateZ(-3deg) translateX(-2px); }
 }
 
-/* Dot background from home page */
-.background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden;
-}
-
-canvas#bg-canvas {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* Mobile optimization */
+/* Mobile responsive */
 @media (max-width: 600px) {
-  .neon-btn {
-    font-size: 14px;
-    padding: 10px 18px;
+  .neon-button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
   }
-
-  .button-wrapper {
-    flex-direction: column !important;
-    align-items: center;
-  }
-
-  .arrow-left, .arrow-right {
-    display: none;
+  .tree-line {
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
