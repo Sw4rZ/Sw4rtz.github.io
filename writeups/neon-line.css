@@ -1,21 +1,20 @@
-/* File: writeups/neon-line.css */
-
 .vertical-line-container {
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   z-index: 10;
+  pointer-events: none;
 }
 
 .vertical-line {
   width: 4px;
-  height: 90%;
+  height: 80%;
   background: #00f6ff;
   box-shadow: 0 0 10px #00f6ff, 0 0 20px #00f6ff;
   animation: glow 2s infinite alternate;
@@ -26,9 +25,56 @@
   height: 30px;
   background: linear-gradient(to right, #ff0055, #ff7700);
   border-radius: 5px;
-  margin-top: 10px;
   animation: wave 1.5s infinite ease-in-out;
   box-shadow: 0 0 10px #ff0055, 0 0 20px #ff7700;
+  margin-bottom: 10px;
+}
+
+.arrow-container {
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.arrow-button {
+  background: #000;
+  border: 2px solid #00f6ff;
+  color: #00f6ff;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #00f6ff;
+  transition: all 0.3s ease;
+  font-family: monospace;
+}
+
+.arrow-button:hover {
+  background: #00f6ff;
+  color: #000;
+  box-shadow: 0 0 20px #00f6ff;
+}
+
+.arrow-right,
+.arrow-left {
+  width: 20px;
+  height: 20px;
+  border: solid #00f6ff;
+  border-width: 0 4px 4px 0;
+  padding: 4px;
+  transform: rotate(-45deg);
+  box-shadow: 0 0 5px #00f6ff;
+  margin-left: 10px;
+}
+
+.bottom-arrow {
+  flex-direction: row-reverse;
+}
+
+.bottom-arrow .arrow-left {
+  transform: rotate(135deg);
+  margin-right: 10px;
+  margin-left: 0;
 }
 
 @keyframes wave {
