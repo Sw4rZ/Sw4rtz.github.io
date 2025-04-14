@@ -1,3 +1,5 @@
+/* File: writeups/neon-line.css */
+
 .vertical-line-container {
   position: fixed;
   top: 0;
@@ -12,6 +14,7 @@
   pointer-events: none;
 }
 
+/* Vertical Glowing Line */
 .vertical-line {
   width: 4px;
   height: 80%;
@@ -20,6 +23,7 @@
   animation: glow 2s infinite alternate;
 }
 
+/* Glowing Flag Animation */
 .flag {
   width: 40px;
   height: 30px;
@@ -30,10 +34,20 @@
   margin-bottom: 10px;
 }
 
+/* Top & Bottom Button Containers */
 .arrow-container {
   display: flex;
   align-items: center;
   pointer-events: auto;
+  opacity: 0;
+  transform: translateX(-100px);
+  animation: slideIn 1.2s ease-out forwards;
+}
+
+.bottom-arrow {
+  flex-direction: row-reverse;
+  transform: translateX(100px);
+  animation-delay: 0.5s;
 }
 
 .arrow-button {
@@ -41,20 +55,25 @@
   border: 2px solid #00f6ff;
   color: #00f6ff;
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 12px 24px;
   margin: 10px;
   border-radius: 8px;
-  box-shadow: 0 0 10px #00f6ff;
-  transition: all 0.3s ease;
+  box-shadow: 0 0 12px #00f6ff;
   font-family: monospace;
+  font-size: 1.1rem;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  animation: popIn 1s ease-in-out forwards;
 }
 
 .arrow-button:hover {
   background: #00f6ff;
   color: #000;
-  box-shadow: 0 0 20px #00f6ff;
+  box-shadow: 0 0 20px #00f6ff, 0 0 40px #00f6ff;
+  transform: scale(1.05);
 }
 
+/* Arrow Styles */
 .arrow-right,
 .arrow-left {
   width: 20px;
@@ -67,25 +86,38 @@
   margin-left: 10px;
 }
 
-.bottom-arrow {
-  flex-direction: row-reverse;
-}
-
 .bottom-arrow .arrow-left {
   transform: rotate(135deg);
   margin-right: 10px;
   margin-left: 0;
 }
 
-@keyframes wave {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(5deg); }
-  50% { transform: rotate(0deg); }
-  75% { transform: rotate(-5deg); }
-  100% { transform: rotate(0deg); }
-}
-
+/* Animations */
 @keyframes glow {
   from { box-shadow: 0 0 10px #00f6ff, 0 0 20px #00f6ff; }
-  to { box-shadow: 0 0 20px #00f6ff, 0 0 30px #00f6ff; }
+  to   { box-shadow: 0 0 20px #00f6ff, 0 0 30px #00f6ff; }
+}
+
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
