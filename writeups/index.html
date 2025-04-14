@@ -1,10 +1,28 @@
-<!-- ✨ Pixel Animation Section -->
-<div class="pixel-section">
-  <div class="pixel-text left">exploitx cf</div>
-  <div class="pixel-text right">picoctf</div>
-  <div class="pixel-line">
-    <div class="pixel-dot"></div>
-    <div class="pixel-flag">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Writeups</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ✅ Your existing theme's CSS should still be linked -->
+  <link rel="stylesheet" href="writeups-timeline.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <h1 style="text-align: center; margin-top: 40px;">Writeups</h1>
+
+  <!-- ✅ Timeline Section -->
+  <div class="timeline">
+    <div class="timeline-start"></div>
+    <div class="timeline-line"></div>
+
+    <!-- ✅ Animated Entry Buttons -->
+    <a href="exploitx.html" class="timeline-entry left animate-left">exploitx ctf</a>
+    <a href="picoctf-2021.html" class="timeline-entry right animate-right">picoctf 2021</a>
+
+    <!-- ✅ Pixel Flag at the Bottom -->
+    <div class="timeline-flag">
       <div class="flag-pole"></div>
       <div class="flag-waves">
         <div class="wave wave1"></div>
@@ -13,120 +31,6 @@
       </div>
     </div>
   </div>
-</div>
 
-<style>
-  .pixel-section {
-    position: relative;
-    width: 80%;
-    margin: 80px auto;
-  }
-
-  .pixel-line {
-    position: relative;
-    height: 4px;
-    background: white;
-    border-radius: 2px;
-  }
-
-  .pixel-dot {
-    position: absolute;
-    left: 0;
-    top: -3px;
-    width: 8px;
-    height: 8px;
-    background: white;
-    animation: blink 1s infinite;
-  }
-
-  .pixel-text {
-    position: absolute;
-    top: -40px;
-    color: white;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 20px;
-    opacity: 0;
-  }
-
-  .pixel-text.left {
-    left: 0;
-    transform: translateX(-50px);
-    animation: slideInLeft 1s forwards;
-    animation-delay: 0.3s;
-  }
-
-  .pixel-text.right {
-    right: 0;
-    transform: translateX(50px);
-    animation: slideInRight 1s forwards;
-    animation-delay: 0.6s;
-  }
-
-  .pixel-flag {
-    position: absolute;
-    right: -20px;
-    top: -30px;
-    width: 24px;
-    height: 24px;
-  }
-
-  .flag-pole {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 3px;
-    height: 100%;
-    background: white;
-  }
-
-  .flag-waves {
-    position: absolute;
-    left: 3px;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-  }
-
-  .wave {
-    width: 10px;
-    height: 4px;
-    background: white;
-    animation: flutter 1.2s ease-in-out infinite;
-    transform-origin: left center;
-  }
-
-  .wave2 {
-    animation-delay: 0.2s;
-    width: 8px;
-  }
-
-  .wave3 {
-    animation-delay: 0.4s;
-    width: 6px;
-  }
-
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
-
-  @keyframes slideInLeft {
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes slideInRight {
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes flutter {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(8deg); }
-  }
-</style>
+</body>
+</html>
