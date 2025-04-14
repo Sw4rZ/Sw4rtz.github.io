@@ -4,13 +4,35 @@
   <meta charset="UTF-8">
   <title>Writeups</title>
   <link rel="stylesheet" href="../style.css">
+  <script src="../background.js" defer></script>
   <style>
-    /* Timeline Structure */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      overflow-x: hidden;
+      color: #0ff;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 80px;
+      font-size: 3rem;
+      text-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+    }
+
+    canvas#matrix {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
     .timeline {
       position: relative;
       width: 90%;
-      max-width: 1000px;
-      margin: 150px auto;
+      max-width: 1200px;
+      margin: 100px auto 150px;
     }
 
     .line {
@@ -19,20 +41,21 @@
       top: 0;
       bottom: 0;
       width: 4px;
-      background: #00ffff;
+      background: #0ff;
       transform: translateX(-50%);
-      box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+      box-shadow: 0 0 10px #0ff, 0 0 30px #0ff;
     }
 
     .event {
       position: relative;
-      width: 45%;
+      width: 40%;
       padding: 20px;
+      margin: 80px 0;
       background: rgba(0, 0, 0, 0.6);
       border: 2px solid #0ff;
       border-radius: 12px;
-      margin: 60px 0;
-      box-shadow: 0 0 15px #0ff;
+      box-shadow: 0 0 20px #0ff;
+      font-size: 1.2rem;
     }
 
     .event.left {
@@ -41,21 +64,24 @@
     }
 
     .event.right {
-      left: 55%;
+      left: 60%;
       text-align: left;
     }
 
+    .event h2 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      color: #0ff;
+    }
+
     .event a {
-      font-family: 'Orbitron', sans-serif;
-      display: inline-block;
-      padding: 10px 20px;
+      text-decoration: none;
       background: #0ff;
       color: #000;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-      box-shadow: 0 0 15px #0ff, 0 0 25px #0ff inset;
-      transition: 0.3s;
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #0ff, inset 0 0 10px #000;
+      transition: 0.3s ease;
     }
 
     .event a:hover {
@@ -75,24 +101,29 @@
       box-shadow: 0 0 10px #0ff;
     }
 
-    .circle.top { top: 0; }
-    .circle.bottom { bottom: 70px; }
+    .circle.top {
+      top: 0;
+    }
+
+    .circle.bottom {
+      bottom: 70px;
+    }
 
     .flag {
       position: absolute;
       bottom: 0;
       left: 50%;
-      width: 60px;
-      height: 40px;
+      width: 70px;
+      height: 60px;
+      transform: translateX(-50%);
       background: url('https://cdn.pixabay.com/photo/2012/04/10/23/30/flag-27002_960_720.png') no-repeat center;
       background-size: contain;
-      transform: translateX(-50%);
-      animation: float 2s ease-in-out infinite;
+      animation: float 2.5s ease-in-out infinite;
     }
 
     @keyframes float {
       0% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(-5px); }
+      50% { transform: translateX(-50%) translateY(-10px); }
       100% { transform: translateX(-50%) translateY(0); }
     }
 
@@ -102,7 +133,11 @@
         left: 5% !important;
         text-align: center !important;
       }
-      .line { left: 5%; }
+
+      .line {
+        left: 5%;
+      }
+
       .flag {
         left: 5%;
         transform: none;
@@ -111,11 +146,10 @@
   </style>
 </head>
 <body>
-
-  <!-- Matrix animation canvas -->
   <canvas id="matrix"></canvas>
 
-  <!-- Timeline -->
+  <h1>WRITEUPS</h1>
+
   <div class="timeline">
     <div class="line"></div>
     <div class="circle top"></div>
@@ -133,49 +167,5 @@
     <div class="circle bottom"></div>
     <div class="flag"></div>
   </div>
-
-  <!-- Matrix Background Animation (copied from home page) -->
-  <script>
-    var canvas = document.getElementById("matrix");
-    var ctx = canvas.getContext("2d");
-
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
-
-    var matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
-    matrix = matrix.split("");
-
-    var font_size = 14;
-    var columns = canvas.width / font_size;
-    var drops = [];
-
-    for (var x = 0; x < columns; x++)
-      drops[x] = 1;
-
-    function draw() {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = "#0ff";
-      ctx.font = font_size + "px Orbitron";
-
-      for (var i = 0; i < drops.length; i++) {
-        var text = matrix[Math.floor(Math.random() * matrix.length)];
-        ctx.fillText(text, i * font_size, drops[i] * font_size);
-
-        if (drops[i] * font_size > canvas.height && Math.random() > 0.975)
-          drops[i] = 0;
-
-        drops[i]++;
-      }
-    }
-
-    setInterval(draw, 35);
-
-    window.addEventListener("resize", () => {
-      canvas.height = window.innerHeight;
-      canvas.width = window.innerWidth;
-    });
-  </script>
 </body>
 </html>
