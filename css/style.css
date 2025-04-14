@@ -85,3 +85,54 @@ h1.glow {
   transform: perspective(500px) rotateX(0deg) scale(1.05);
   box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3);
 }
+
+/* Writeup section styling */
+.writeup-section {
+  background: rgba(28, 28, 28, 0.9);
+  border: 1px solid #00ffff;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 900px;
+  margin: 30px auto;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  text-align: left;
+}
+
+.writeup-section h2 {
+  color: #00ffff;
+  margin-top: 40px;
+}
+
+.writeup-section p,
+.writeup-section pre {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 15px;
+}
+
+.image-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.image-group img,
+.wide-img {
+  max-width: 100%;
+  border: 2px solid #00ffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.flag {
+  background-color: #111;
+  padding: 10px;
+  border-left: 5px solid #00ffff;
+  font-size: 1.1rem;
+  color: #0f0;
+  margin: 20px 0;
+  font-family: 'Share Tech Mono', monospace;
+}
