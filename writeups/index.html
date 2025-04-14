@@ -4,29 +4,45 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Writeups</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="background-animation"></div>
+  <!-- Dot animation background canvas -->
+  <canvas id="dotCanvas"></canvas>
 
-  <div class="writeups-container">
-    <h1 class="title">WRITEUPS</h1>
-    <div class="vertical-line">
-      <div class="button-wrapper top">
-        <a href="exploitxctf.html" class="glow-button">Exploitx CTF</a>
-        <div class="arrow-left"></div>
+  <div class="container">
+    <h1 class="heading">WRITEUPS</h1>
+
+    <div class="timeline">
+      <!-- Line from heading -->
+      <div class="line vertical top-line"></div>
+
+      <!-- First Button -->
+      <div class="timeline-item">
+        <div class="connector-line"></div>
+        <a href="exploitx.html" class="neon-btn">Exploitx CTF</a>
       </div>
-      <div class="connector"></div>
-      <div class="button-wrapper bottom">
-        <a href="picoctf2021.html" class="glow-button">picoctf-2021</a>
-        <div class="arrow-right"></div>
+
+      <!-- Connector Line -->
+      <div class="line vertical mid-line"></div>
+
+      <!-- Second Button -->
+      <div class="timeline-item">
+        <div class="connector-line"></div>
+        <a href="picoctf-2021.html" class="neon-btn">picoCTF-2021</a>
       </div>
-      <div class="connector"></div>
-      <div class="flag">
-        <div class="pixel-flag"></div>
-        <div class="flag-text">flag here</div>
+
+      <!-- Final Line to Flag -->
+      <div class="line vertical bottom-line"></div>
+
+      <!-- Floating Flag -->
+      <div class="flag-container">
+        <div class="flag"></div>
+        <p class="flag-text">FLAG</p>
       </div>
     </div>
   </div>
+
+  <script src="dots.js"></script>
 </body>
 </html>
