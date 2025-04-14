@@ -4,163 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Writeups</title>
-  <link rel="stylesheet" href="../style.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background-color: black;
-      color: white;
-      overflow-x: hidden;
-    }
-
-    canvas#background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-    }
-
-    .title {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-top: 40px;
-      font-weight: bold;
-      color: #0ff;
-      text-shadow: 0 0 10px #0ff;
-    }
-
-    .tree-container {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 60px;
-    }
-
-    .v-line {
-      width: 4px;
-      background: #0ff;
-      position: absolute;
-      top: 40px;
-      bottom: 120px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 0;
-      box-shadow: 0 0 20px #0ff;
-    }
-
-    .node {
-      display: flex;
-      align-items: center;
-      margin: 40px 0;
-      position: relative;
-      z-index: 1;
-    }
-
-    .node.left {
-      flex-direction: row-reverse;
-      align-self: flex-start;
-      margin-left: 20%;
-    }
-
-    .node.right {
-      align-self: flex-end;
-      margin-right: 20%;
-    }
-
-    .neon-button {
-      padding: 10px 20px;
-      font-size: 1rem;
-      color: #0ff;
-      background: transparent;
-      border: 2px solid #0ff;
-      border-radius: 10px;
-      text-shadow: 0 0 5px #0ff;
-      box-shadow: 0 0 15px #0ff;
-      cursor: pointer;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .neon-button:hover {
-      background: #0ff;
-      color: black;
-      box-shadow: 0 0 30px #0ff;
-    }
-
-    .arrow {
-      width: 40px;
-      height: 2px;
-      background: #0ff;
-      position: relative;
-      margin: 0 10px;
-    }
-
-    .arrow::after {
-      content: '';
-      position: absolute;
-      top: -5px;
-      right: 0;
-      border: solid #0ff;
-      border-width: 5px 0 5px 10px;
-      display: inline-block;
-    }
-
-    .flag {
-      width: 0;
-      height: 0;
-      border-left: 25px solid transparent;
-      border-right: 25px solid transparent;
-      border-bottom: 40px solid #0ff;
-      animation: float 3s ease-in-out infinite;
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      box-shadow: 0 0 20px #0ff;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(-10px); }
-    }
-
-    @media screen and (max-width: 768px) {
-      .node.left, .node.right {
-        margin: 30px auto;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .arrow {
-        display: none;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <canvas id="background"></canvas>
+  <canvas id="dotCanvas"></canvas>
 
-  <h1 class="title">WRITEUPS</h1>
-  <div class="tree-container">
-    <div class="v-line"></div>
+  <div class="container">
+    <h1 class="title">WRITEUPS</h1>
+    <div class="tree-line"></div>
 
-    <div class="node left">
-      <div class="arrow"></div>
-      <a href="exploitx.html" class="neon-button">Exploitx CTF</a>
-    </div>
-
-    <div class="node right">
-      <a href="picoctf-2021.html" class="neon-button">picoCTF-2021</a>
+    <div class="entry">
+      <div class="connector-line top"></div>
+      <a href="exploitx-ctf.html" class="neon-button">Exploitx ctf</a>
       <div class="arrow"></div>
     </div>
 
-    <div class="flag"></div>
+    <div class="entry">
+      <div class="connector-line middle"></div>
+      <a href="picoctf-2021.html" class="neon-button">picoctf-2021</a>
+      <div class="arrow"></div>
+    </div>
+
+    <div class="entry">
+      <div class="connector-line bottom"></div>
+      <div class="flag">
+        <div class="pole"></div>
+        <div class="flag-wave"></div>
+      </div>
+    </div>
   </div>
 
-  <script src="../background.js"></script>
+  <script src="dots.js"></script>
 </body>
 </html>
