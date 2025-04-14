@@ -2,38 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Writeups</title>
+  <link rel="stylesheet" href="../assets/neon.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <canvas id="dotCanvas"></canvas>
-
+  <canvas id="bg"></canvas>
+  
   <div class="container">
-    <h1 class="title">WRITEUPS</h1>
-    <div class="tree-line"></div>
+    <h1 class="page-title">WRITEUPS</h1>
+    
+    <div class="line"></div>
 
-    <div class="entry">
-      <div class="connector-line top"></div>
-      <a href="exploitx-ctf.html" class="neon-button">Exploitx ctf</a>
-      <div class="arrow"></div>
+    <div class="button-wrapper">
+      <div class="connector top-line"></div>
+      <a class="neon-button" href="Exploitx_ctf.html">Exploitx ctf</a>
     </div>
 
-    <div class="entry">
-      <div class="connector-line middle"></div>
-      <a href="picoctf-2021.html" class="neon-button">picoctf-2021</a>
-      <div class="arrow"></div>
-    </div>
-
-    <div class="entry">
-      <div class="connector-line bottom"></div>
-      <div class="flag">
-        <div class="pole"></div>
-        <div class="flag-wave"></div>
-      </div>
+    <div class="button-wrapper">
+      <div class="connector mid-line"></div>
+      <a class="neon-button" href="picoctf_2021.html">picoctf-2021</a>
     </div>
   </div>
 
-  <script src="dots.js"></script>
+  <script src="../assets/dots.js"></script>
 </body>
 </html>
