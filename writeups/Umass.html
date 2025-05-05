@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>UMASS_CTF</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/background.js" defer></script>
+  <link rel="stylesheet" href="css/style.css" />
   <style>
     body, html {
       margin: 0;
       padding: 0;
+      height: 100%;
       overflow: hidden;
-      font-family: 'Orbitron', sans-serif;
       background-color: black;
       color: white;
+      font-family: 'Orbitron', sans-serif;
     }
 
     canvas#bgCanvas {
@@ -24,25 +24,19 @@
 
     .content {
       position: relative;
-      text-align: center;
       z-index: 1;
-      padding-top: 80px;
+      padding: 40px;
+      text-align: center;
     }
 
-    .content h1 {
+    h1 {
       font-size: 50px;
       color: #00faff;
-      text-shadow: 0 0 15px #00faff;
+      text-shadow: 0 0 20px #00faff;
+      margin-bottom: 40px;
     }
 
-    .pdf-container {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .pdf-container iframe {
+    iframe {
       width: 80%;
       height: 80vh;
       border: 2px solid #00faff;
@@ -54,13 +48,11 @@
 </head>
 <body>
   <canvas id="bgCanvas"></canvas>
-
   <div class="content">
     <h1>UMASS_CTF Writeup</h1>
-
-    <div class="pdf-container">
-      <iframe src="UDMASS CTF.pdf" frameborder="0"></iframe>
-    </div>
+    <iframe src="UDMASS CTF.pdf"></iframe>
   </div>
+
+  <script src="js/background.js"></script>
 </body>
 </html>
