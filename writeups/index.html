@@ -2,93 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Writeups</title>
-  <link rel="stylesheet" href="../style.css" />
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      background: black;
-      color: #00ffcc;
-      font-family: "Orbitron", sans-serif;
-    }
-
-    canvas#bgCanvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-
-    .container {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 100px 20px;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 60px;
-      text-shadow: 0 0 10px #00ffcc;
-    }
-
-    .btn-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .neon-button {
-      font-size: 1.2rem;
-      padding: 15px 30px;
-      color: #00ffcc;
-      border: 2px solid #00ffcc;
-      background: transparent;
-      border-radius: 12px;
-      box-shadow: 0 0 15px #00ffcc, inset 0 0 10px #00ffcc;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .neon-button:hover {
-      box-shadow: 0 0 25px #00ffcc, inset 0 0 15px #00ffcc;
-      transform: scale(1.05);
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      .neon-button {
-        font-size: 1rem;
-        padding: 12px 25px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Dot Animation Background -->
-  <canvas id="bgCanvas"></canvas>
-
-  <!-- Page Content -->
   <div class="container">
-    <h1>WRITEUPS</h1>
-    <div class="btn-wrapper">
-      <a class="neon-button" href="exploitx.html">Exploitx ctf</a>
-      <a class="neon-button" href="picoctf-2021.html">picoctf-2021</a>
-    </div>
-  </div>
+    <h1>Writeups</h1>
+    <blockquote>"Hacking is not a crime, it's an art."</blockquote>
 
-  <!-- Correct background animation script -->
-  <script src="../js/background.js"></script>
+    <div class="project">
+      <a href="writeups/exploitx.html" class="project-tile">
+        <div class="icon"></div>
+        <h2>ExploitX CTF</h2>
+      </a>
+    </div>
+
+    <div class="project">
+      <a href="writeups/umass.html" class="project-tile">
+        <div class="icon"></div>
+        <h2>UMASS CTF</h2>
+      </a>
+    </div>
+
+  </div>
 </body>
 </html>
