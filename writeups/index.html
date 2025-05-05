@@ -1,29 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Writeups</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>Writeups</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
+<canvas id="bg"></canvas>
+<script src="background.js"></script>
+
+<div class="content">
     <h1>Writeups</h1>
-    <blockquote>"Hacking is not a crime, it's an art."</blockquote>
+    <blockquote>"There’s a way to do it better — find it." – Thomas Edison</blockquote>
 
-    <div class="project">
-      <a href="writeups/exploitx.html" class="project-tile">
-        <div class="icon"></div>
-        <h2>ExploitX CTF</h2>
-      </a>
+    <div class="button-container">
+        <a href="exploitx.html" class="ctf-button">ExploitX CTF</a>
+        <a href="pico.html" class="ctf-button">PicoCTF 2021</a>
+        <a href="umass.html" class="ctf-button">UMASS CTF</a>
     </div>
+</div>
 
-    <div class="project">
-      <a href="writeups/umass.html" class="project-tile">
-        <div class="icon"></div>
-        <h2>UMASS CTF</h2>
-      </a>
-    </div>
+<style>
+    .button-container {
+        margin-top: 30px;
+    }
 
-  </div>
+    .ctf-button {
+        display: inline-block;
+        padding: 12px 24px;
+        margin: 10px;
+        font-size: 18px;
+        color: #fff;
+        background: linear-gradient(135deg, #4CAF50, #2E7D32);
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: transform 0.2s ease-in-out;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
+    .ctf-button:hover {
+        transform: scale(1.1);
+    }
+</style>
+
 </body>
 </html>
