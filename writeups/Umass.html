@@ -2,31 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>UMASS_CTF Writeup</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="background.js" defer></script>
+  <title>UMASS_CTF</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/background.js" defer></script>
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      overflow: hidden;
+    }
+
+    canvas#background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .neon-text {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 50px;
+      color: #00faff;
+      text-shadow:
+        0 0 10px #00faff,
+        0 0 20px #00faff,
+        0 0 40px #00faff;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { text-shadow: 0 0 10px #00faff; }
+      50% { text-shadow: 0 0 30px #00faff; }
+      100% { text-shadow: 0 0 10px #00faff; }
+    }
+
     .pdf-container {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      padding-top: 60px;
+      height: 80vh;
+      margin-top: 30px;
     }
 
-    embed {
+    .pdf-container iframe {
       width: 80%;
-      height: 90vh;
-      border: 2px solid #333;
-      border-radius: 10px;
-      background: #fff;
+      height: 100%;
+      border: 2px solid #00faff;
+      box-shadow: 0 0 20px #00faff;
+      border-radius: 12px;
+      background: #111;
     }
   </style>
 </head>
 <body>
   <canvas id="background"></canvas>
+
+  <h1 class="neon-text">UMASS_CTF Writeup</h1>
+
   <div class="pdf-container">
-    <embed src="UDMASS CTF.pdf" type="application/pdf">
+    <iframe src="UDMASS CTF.pdf" frameborder="0"></iframe>
   </div>
 </body>
 </html>
