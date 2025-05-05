@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>UMASS_CTF</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
   <script src="js/background.js" defer></script>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background-color: #000;
-      color: #fff;
+      background: black;
+      color: white;
       font-family: 'Orbitron', sans-serif;
       overflow: hidden;
     }
 
-    canvas#background {
+    canvas#bgCanvas {
       position: fixed;
       top: 0;
       left: 0;
@@ -27,17 +26,7 @@
       margin-top: 60px;
       font-size: 50px;
       color: #00faff;
-      text-shadow:
-        0 0 10px #00faff,
-        0 0 20px #00faff,
-        0 0 40px #00faff;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { text-shadow: 0 0 10px #00faff; }
-      50% { text-shadow: 0 0 30px #00faff; }
-      100% { text-shadow: 0 0 10px #00faff; }
+      text-shadow: 0 0 20px #00faff;
     }
 
     .pdf-container {
@@ -59,8 +48,7 @@
   </style>
 </head>
 <body>
-  <canvas id="background"></canvas>
-
+  <canvas id="bgCanvas"></canvas>
   <h1 class="neon-text">UMASS_CTF Writeup</h1>
 
   <div class="pdf-container">
