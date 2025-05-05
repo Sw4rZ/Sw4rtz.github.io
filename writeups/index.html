@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Writeups</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css">
   <script src="js/background.js" defer></script>
   <style>
-    body {
+    body, html {
       margin: 0;
-      background: black;
-      color: white;
-      font-family: 'Orbitron', sans-serif;
+      padding: 0;
       overflow: hidden;
+      font-family: 'Orbitron', sans-serif;
+      background-color: black;
+      color: white;
     }
 
     canvas#bgCanvas {
@@ -21,48 +22,57 @@
       z-index: -1;
     }
 
-    .neon-text {
+    .content {
+      position: relative;
       text-align: center;
-      margin-top: 80px;
+      padding-top: 100px;
+      z-index: 1;
+    }
+
+    .content h1 {
       font-size: 60px;
       color: #00faff;
-      text-shadow: 0 0 20px #00faff;
+      text-shadow: 0 0 15px #00faff;
     }
 
     .button-container {
+      margin-top: 60px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 50px;
     }
 
     .glow-button {
-      margin: 20px;
-      padding: 15px 40px;
-      font-size: 20px;
-      color: white;
       background: transparent;
       border: 2px solid #00faff;
       border-radius: 10px;
-      box-shadow: 0 0 10px #00faff;
+      color: #fff;
+      padding: 15px 40px;
+      font-size: 20px;
+      margin: 20px;
       cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 15px #00faff;
     }
 
     .glow-button:hover {
-      background-color: #00faff;
-      color: black;
-      box-shadow: 0 0 20px #00faff, 0 0 40px #00faff;
+      background: #00faff;
+      color: #000;
+      box-shadow: 0 0 25px #00faff;
     }
   </style>
 </head>
 <body>
   <canvas id="bgCanvas"></canvas>
-  <h1 class="neon-text">Writeups</h1>
 
-  <div class="button-container">
-    <button class="glow-button" onclick="location.href='picoctf-2021.html'">PicoCTF</button>
-    <button class="glow-button" onclick="location.href='exploitx.html'">ExploitxCTF</button>
-    <button class="glow-button" onclick="location.href='Umass.html'">UMASS_CTF</button>
+  <div class="content">
+    <h1>Writeups</h1>
+
+    <div class="button-container">
+      <button class="glow-button" onclick="location.href='picoctf-2021.html'">PicoCTF</button>
+      <button class="glow-button" onclick="location.href='exploitx.html'">ExploitxCTF</button>
+      <button class="glow-button" onclick="location.href='Umass.html'">UMASS_CTF</button>
+    </div>
   </div>
 </body>
 </html>
