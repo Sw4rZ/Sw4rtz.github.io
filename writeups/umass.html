@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>UMASS CTF</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>UMASS CTF</h1>
+    <blockquote>"Two halls uncovered, yet the path of learning stretches infinitely ahead—every solved challenge fuels the fire to conquer more."</blockquote>
+
+    <section>
+      <h2>Overview</h2>
+      <p>
+        The UMass Cybersecurity Club organizes UMassCTF 2025, a global cybersecurity competition featuring challenges in web exploitation, cryptography, reverse engineering, and more. This event aims to provide an engaging learning experience through expert talks, networking opportunities, and exciting prizes.
+      </p>
+    </section>
+
+    <section>
+      <h2>Challenge 1: Steganography + Cryptography</h2>
+      <p>This challenge presents an image packed with multiple QR codes, each possibly holding a piece of the puzzle.</p>
+
+      <h3>Step 1: Image Analysis with Aperi’Solve</h3>
+      <p>I uploaded the image to <a href="https://www.aperisolve.com" target="_blank">Aperi'Solve</a>, which extracted hidden data including a suspicious hash and a key.</p>
+      <img src="images/qr-analyze.png" alt="QR image analyzed in Aperi'Solve" style="max-width: 100%; border-radius: 12px;" />
+
+      <h3>Step 2: Decrypting with Vigenère Cipher</h3>
+      <p>Using <a href="https://www.dcode.fr/vigenere-cipher" target="_blank">DCode’s Vigenère Cipher Solver</a>, I decrypted the hash with the key obtained earlier. This revealed the flag.</p>
+      <img src="images/vigenere-decrypt.png" alt="Vigenere decryption result" style="max-width: 100%; border-radius: 12px;" />
+    </section>
+
+    <section>
+      <h2>Challenge 2: PCAP Network Analysis</h2>
+      <h3>Step 1: Prepare the File</h3>
+      <p>I first ran the following command to make the PCAP file usable:</p>
+      <pre><code>chmod +x chall.pcapng</code></pre>
+
+      <h3>Step 2: Analyze in Wireshark</h3>
+      <p>Loaded the file in Wireshark and used the filter:</p>
+      <pre><code>frame contains "UMASS"</code></pre>
+      <p>This revealed the flag inside a packet containing "UMASS".</p>
+      <img src="images/wireshark.png" alt="Wireshark filtering packets" style="max-width: 100%; border-radius: 12px;" />
+    </section>
+  </div>
+</body>
+</html>
