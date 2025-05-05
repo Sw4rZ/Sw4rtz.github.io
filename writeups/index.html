@@ -6,76 +6,76 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="js/background.js" defer></script>
   <style>
-    body, html {
+    body {
       margin: 0;
       padding: 0;
-      overflow: hidden;
+      background-color: #000;
+      color: #fff;
       font-family: 'Orbitron', sans-serif;
+      overflow: hidden;
     }
 
-    #background {
+    canvas#background {
       position: fixed;
       top: 0;
       left: 0;
       z-index: -1;
     }
 
-    .main-heading {
-      color: white;
-      font-size: 60px;
+    .neon-text {
       text-align: center;
-      margin-top: 60px;
-      text-shadow: 0 0 15px #00faff, 0 0 25px #00faff;
+      margin-top: 80px;
+      font-size: 60px;
+      color: #00faff;
+      text-shadow:
+        0 0 10px #00faff,
+        0 0 20px #00faff,
+        0 0 40px #00faff;
       animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
-      0% {
-        text-shadow: 0 0 15px #00faff, 0 0 25px #00faff;
-      }
-      50% {
-        text-shadow: 0 0 25px #00ffea, 0 0 40px #00ffea;
-      }
-      100% {
-        text-shadow: 0 0 15px #00faff, 0 0 25px #00faff;
-      }
+      0% { text-shadow: 0 0 10px #00faff; }
+      50% { text-shadow: 0 0 30px #00faff; }
+      100% { text-shadow: 0 0 10px #00faff; }
     }
 
-    .container {
+    .button-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 60px;
+      margin-top: 50px;
     }
 
-    .btn {
+    .glow-button {
+      margin: 20px;
       padding: 15px 40px;
-      margin: 25px;
-      font-size: 22px;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
+      font-size: 20px;
       color: white;
-      background: linear-gradient(45deg, #00faff, #0040ff);
-      box-shadow: 0 0 15px #00faff;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: transparent;
+      border: 2px solid #00faff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00faff;
+      cursor: pointer;
+      transition: 0.3s ease;
     }
 
-    .btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 25px #00faff;
+    .glow-button:hover {
+      background-color: #00faff;
+      color: #000;
+      box-shadow: 0 0 20px #00faff, 0 0 40px #00faff;
     }
   </style>
 </head>
 <body>
   <canvas id="background"></canvas>
 
-  <h1 class="main-heading">Writeups</h1>
+  <h1 class="neon-text">Writeups</h1>
 
-  <div class="container">
-    <button class="btn" onclick="location.href='picoctf-2021.html'">PicoCTF</button>
-    <button class="btn" onclick="location.href='exploitx.html'">ExploitxCTF</button>
-    <button class="btn" onclick="location.href='Umass.html'">UMASS_CTF</button>
+  <div class="button-container">
+    <button class="glow-button" onclick="location.href='picoctf-2021.html'">PicoCTF</button>
+    <button class="glow-button" onclick="location.href='exploitx.html'">ExploitxCTF</button>
+    <button class="glow-button" onclick="location.href='Umass.html'">UMASS_CTF</button>
   </div>
 </body>
 </html>
