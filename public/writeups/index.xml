@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Writeups on Sw4rtz-Blogs</title>
+    <link>http://localhost:1313/writeups/</link>
+    <description>Recent content in Writeups on Sw4rtz-Blogs</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/writeups/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/writeups/umass-ctf-writeup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/umass-ctf-writeup/</guid>
+      <description>UDMASS CTF Writeup The UMass Cybersecurity Club organized UMassCTF 2025, a global cybersecurity competition featuring challenges in:&#xA;Web exploitation Cryptography Reverse engineering&#xA;&amp;hellip;and more. This is how I solved some of the challenges!&#xA;🔍 Challenge: Steganography + Cryptography This challenge presented an image filled with multiple QR codes.&#xA;Step 1: QR Analysis I started by uploading the image to Aperi&amp;rsquo;Solve&#xA;🔗 https://www.aperisolve.com&#xA;This revealed:&#xA;A hash A key Step 2: Vigenère Cipher Decryption The hash looked like it was encrypted using the Vigenère cipher.</description>
+    </item>
+  </channel>
+</rss>

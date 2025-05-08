@@ -1,0 +1,14 @@
+baseURL = "https://Sw4rZ.github.io/"
+languageCode = "en-us"
+title = "Sw4rtz-Blogs"
+theme = "LucentLink-Hugo"
+minVersion = "0.115.0"
+
+[params]
+  description = "A simple, customizable, and responsive Linktree-style landing page built using Hugo, Tailwind CSS, and Font Awesome."
+  googleAnalytics = ""
+  profileImage = "images/img.jpg"
+
+[outputs]
+  home = ["HTML"]
+
