@@ -2,16 +2,15 @@
 title: "Blogs"
 # Profile settings
 profileImage: "images/img.jpg"        # path under static/
-name: "cx48"
+name: "LESO ARON K"
 description: "Security Analyst | Frontend Developer | Content Writer"
 socials:
-  - url: "https://twitter.com/yourhandle"
-    icon: "fab fa-twitter"
+
   - url: "https://instagram.com/yourhandle"
     icon: "fab fa-instagram"
   - url: "https://github.com/Sw4rZ/Sw4rtz.github.io.git"
     icon: "fab fa-github"
-  - url: "https://linkedin.com/in/yourhandle"
+  - url: "https://www.linkedin.com/in/leso-aron-6a1081315"
     icon: "fab fa-linkedin"
   - url: "https://youtube.com/yourchannel"
     icon: "fab fa-youtube"
@@ -22,7 +21,7 @@ socials:
 links:
   - href: "https://your.site"
     icon: "fas fa-globe"
-    title: "Personal Website"
+    title: "Sw4rtz"
     description: "Check out my portfolio"
   - href: "https://blog.your.site"
     icon: "fas fa-blog"
